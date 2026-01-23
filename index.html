@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Technical Writing Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff;
+            min-height: 100vh;
+        }
+        header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .tagline {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .contact {
+            color: #666;
+            font-size: 0.95em;
+        }
+        .contact a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        section {
+            margin-bottom: 50px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .about-text {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #444;
+        }
+        .article-grid {
+            display: grid;
+            gap: 30px;
+        }
+        .article-card {
+            border-left: 3px solid #0066cc;
+            padding-left: 20px;
+            transition: transform 0.2s;
+        }
+        .article-card:hover {
+            transform: translateX(5px);
+        }
+        .article-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 8px;
+        }
+        .article-card h3 a {
+            color: #333;
+            text-decoration: none;
+        }
+        .article-card h3 a:hover {
+            color: #0066cc;
+        }
+        .article-meta {
+            color: #999;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .article-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .read-more {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        .category-section {
+            margin-bottom: 30px;
+        }
+        .category-section h3 {
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            color: #444;
+        }
+        .article-list {
+            list-style: none;
+        }
+        .article-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .article-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+        }
+        .article-list a {
+            color: #333;
+            text-decoration: none;
+        }
+        .article-list a:hover {
+            color: #0066cc;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .skill-category {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .skill-category h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .skill-category p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Name</h1>
+            <p class="tagline">Technical Writer | Developer Documentation Specialist</p>
+            <div class="contact">
+                <a href="mailto:your.email@example.com">Email</a>
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>About</h2>
+            <p class="about-text">
+                I'm a technical writer specializing in developer documentation, API references, and comprehensive guides. 
+                With a background in software development, I create clear, accurate documentation that helps developers 
+                build better products. I focus on making complex technical concepts accessible through well-structured 
+                guides, tutorials, and reference materials.
+            </p>
+        </section>
+
+        <section>
+            <h2>Featured Guides</h2>
+            <div class="article-grid">
+                <div class="article-card">
+                    <h3><a href="articles/getting-started-rest-api.html">Getting Started with REST APIs</a></h3>
+                    <div class="article-meta">Published: December 2024 • Tutorial</div>
+                    <p class="article-description">
+                        A comprehensive guide for beginners covering REST API fundamentals, HTTP methods, 
+                        authentication, and best practices. Includes practical examples and code snippets 
+                        in multiple programming languages.
+                    </p>
+                    <a href="articles/getting-started-rest-api.html" class="read-more">Read Guide →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3><a href="articles/docker-deployment-guide.html">Docker Deployment Best Practices</a></h3>
+                    <div class="article-meta">Published: November 2024 • How-to Guide</div>
+                    <p class="article-description">
+                        Step-by-step instructions for deploying applications using Docker. Covers containerization, 
+                        Docker Compose, environment management, and production deployment strategies.
+                    </p>
+                    <a href="articles/docker-deployment-guide.html" class="read-more">Read Guide →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3><a href="articles/api-documentation-template.html">API Documentation Template</a></h3>
+                    <div class="article-meta">Published: October 2024 • Reference</div>
+                    <p class="article-description">
+                        A complete template for writing API documentation including endpoint descriptions, 
+                        request/response examples, error handling, and authentication flows. Ready to customize 
+                        for your project.
+                    </p>
+                    <a href="articles/api-documentation-template.html" class="read-more">Read Guide →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3><a href="articles/git-workflow-teams.html">Git Workflow for Development Teams</a></h3>
+                    <div class="article-meta">Published: September 2024 • Tutorial</div>
+                    <p class="article-description">
+                        Learn effective Git workflows for team collaboration. Covers branching strategies, 
+                        pull requests, code reviews, and conflict resolution with real-world examples.
+                    </p>
+                    <a href="articles/git-workflow-teams.html" class="read-more">Read Guide →</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>All Writing by Category</h2>
+            
+            <div class="category-section">
+                <h3>API Documentation</h3>
+                <ul class="article-list">
+                    <li><a href="articles/rest-api-reference.html">REST API Complete Reference</a></li>
+                    <li><a href="articles/graphql-api-guide.html">GraphQL API Documentation Guide</a></li>
+                    <li><a href="articles/webhook-implementation.html">Implementing Webhooks: A Developer Guide</a></li>
+                    <li><a href="articles/api-versioning.html">API Versioning Strategies</a></li>
+                </ul>
+            </div>
+
+            <div class="category-section">
+                <h3>Tutorials & How-to Guides</h3>
+                <ul class="article-list">
+                    <li><a href="articles/kubernetes-basics.html">Kubernetes Fundamentals for Developers</a></li>
+                    <li><a href="articles/ci-cd-setup.html">Setting Up CI/CD Pipeline with GitHub Actions</a></li>
+                    <li><a href="articles/database-migration.html">Database Migration Strategies</a></li>
+                    <li><a href="articles/testing-practices.html">Unit Testing Best Practices</a></li>
+                </ul>
+            </div>
+
+            <div class="category-section">
+                <h3>Technical Articles</h3>
+                <ul class="article-list">
+                    <li><a href="articles/microservices-architecture.html">Understanding Microservices Architecture</a></li>
+                    <li><a href="articles/api-security.html">API Security: Essential Practices</a></li>
+                    <li><a href="articles/documentation-tools.html">Modern Documentation Tools Comparison</a></li>
+                    <li><a href="articles/technical-writing-tips.html">Writing Effective Technical Documentation</a></li>
+                </ul>
+            </div>
+
+            <div class="category-section">
+                <h3>Reference Materials</h3>
+                <ul class="article-list">
+                    <li><a href="articles/http-status-codes.html">HTTP Status Codes Reference</a></li>
+                    <li><a href="articles/markdown-cheatsheet.html">Markdown Syntax Cheatsheet</a></li>
+                    <li><a href="articles/git-commands.html">Essential Git Commands Reference</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Documentation Tools</h3>
+                    <p>Markdown, reStructuredText, AsciiDoc, Sphinx, MkDocs, Docusaurus, GitBook, Swagger/OpenAPI</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical Areas</h3>
+                    <p>REST APIs, GraphQL, Microservices, Cloud Computing (AWS, Azure), DevOps, Databases, Web Development</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Development</h3>
+                    <p>Git, GitHub, JavaScript, Python, Docker, CI/CD, Testing, Version Control</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Writing Specialties</h3>
+                    <p>API Documentation, User Guides, Tutorials, How-to Articles, Reference Materials, Release Notes</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 Your Name. All rights reserved.</p>
+            <p>Last updated: January 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
