@@ -5,21 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aditya Reddy - Technical Writing Portfolio</title>
 
-  <!-- Google Font (Minimal & Premium Feel) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg: #fbfbfd;
+      --bg: #f7f9ff;
+      --bg2: #fff7fb;
       --card: #ffffff;
       --text: #1d1d1f;
       --muted: #6e6e73;
       --border: rgba(0,0,0,0.08);
-      --accent: #2f6fed;     /* minimal blue */
-      --accent-soft: rgba(47,111,237,0.12);
-      --shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+      /* Minimal aesthetic color */
+      --accent: #5b7cfa;           /* soft blue */
+      --accent2: #ff6fae;          /* soft pink */
+      --accent-soft: rgba(91,124,250,0.12);
+      --accent-soft2: rgba(255,111,174,0.10);
+
+      --shadow: 0 12px 35px rgba(0,0,0,0.06);
       --radius: 18px;
     }
 
@@ -31,9 +36,11 @@
 
     body{
       font-family: "Inter", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-      background: var(--bg);
       color: var(--text);
       line-height: 1.65;
+      background: radial-gradient(circle at top left, var(--bg), transparent 55%),
+                  radial-gradient(circle at bottom right, var(--bg2), transparent 55%),
+                  #fbfbfd;
     }
 
     .container{
@@ -42,7 +49,7 @@
       padding: 44px 18px;
     }
 
-    /* Top Header */
+    /* Header */
     header{
       display:flex;
       justify-content: space-between;
@@ -50,9 +57,23 @@
       gap: 20px;
       padding: 28px 26px;
       border: 1px solid var(--border);
-      background: var(--card);
+      background: linear-gradient(180deg, rgba(91,124,250,0.08), rgba(255,255,255,1));
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle colored glow strip */
+    header::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      height:6px;
+      width:100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0.85;
     }
 
     .hero h1{
@@ -89,12 +110,11 @@
     }
 
     .pill:hover{
-      border-color: rgba(47,111,237,0.35);
-      background: var(--accent-soft);
+      border-color: rgba(91,124,250,0.35);
+      background: linear-gradient(90deg, var(--accent-soft), var(--accent-soft2));
       transform: translateY(-1px);
     }
 
-    /* Sections */
     section{
       margin-top: 26px;
     }
@@ -110,6 +130,21 @@
     h2{
       font-size: 1.35rem;
       letter-spacing: -0.01em;
+      position: relative;
+      padding-bottom: 6px;
+    }
+
+    /* tiny colorful underline */
+    h2::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      height:3px;
+      width: 62px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0.85;
     }
 
     .subtext{
@@ -117,7 +152,7 @@
       font-size: 0.95rem;
     }
 
-    /* About Card */
+    /* About */
     .about{
       padding: 22px 22px;
       border-radius: var(--radius);
@@ -133,7 +168,6 @@
 
     /* Carousel */
     .carousel-wrap{
-      position: relative;
       border-radius: var(--radius);
       border: 1px solid var(--border);
       background: var(--card);
@@ -161,14 +195,28 @@
       scroll-snap-align: start;
       border-radius: 16px;
       border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(47,111,237,0.08), rgba(255,255,255,1));
+      background: linear-gradient(180deg, rgba(255,111,174,0.08), rgba(255,255,255,1));
       padding: 18px 16px;
       transition: 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle accent border line */
+    .featured-card::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      width:4px;
+      height:100%;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      opacity: 0.9;
     }
 
     .featured-card:hover{
       transform: translateY(-2px);
-      border-color: rgba(47,111,237,0.35);
+      border-color: rgba(91,124,250,0.30);
     }
 
     .meta{
@@ -177,12 +225,14 @@
       letter-spacing: 0.08em;
       color: var(--muted);
       margin-bottom: 10px;
+      padding-left: 6px;
     }
 
     .featured-card h3{
       font-size: 1.12rem;
       margin-bottom: 8px;
       letter-spacing: -0.01em;
+      padding-left: 6px;
     }
 
     .featured-card h3 a{
@@ -198,6 +248,7 @@
       color: #4b4b52;
       font-size: 0.95rem;
       margin-bottom: 14px;
+      padding-left: 6px;
     }
 
     .cta{
@@ -208,13 +259,13 @@
       text-decoration:none;
       font-weight: 600;
       font-size: 0.95rem;
+      padding-left: 6px;
     }
 
     .cta:hover{
       text-decoration: underline;
     }
 
-    /* Carousel Controls */
     .carousel-controls{
       display:flex;
       justify-content: space-between;
@@ -235,11 +286,11 @@
     }
 
     .btn:hover{
-      border-color: rgba(47,111,237,0.35);
-      background: var(--accent-soft);
+      border-color: rgba(91,124,250,0.35);
+      background: linear-gradient(90deg, var(--accent-soft), var(--accent-soft2));
     }
 
-    /* Categories Grid */
+    /* Categories */
     .categories-grid{
       display:grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -252,6 +303,18 @@
       border-radius: var(--radius);
       padding: 18px 18px;
       box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category::after{
+      content:"";
+      position:absolute;
+      right:-40px;
+      top:-40px;
+      width:120px;
+      height:120px;
+      background: radial-gradient(circle, rgba(91,124,250,0.18), transparent 60%);
     }
 
     .category h3{
@@ -288,8 +351,8 @@
     }
 
     .links a:hover{
-      border-color: rgba(47,111,237,0.25);
-      background: var(--accent-soft);
+      border-color: rgba(91,124,250,0.25);
+      background: linear-gradient(90deg, var(--accent-soft), var(--accent-soft2));
       color: var(--accent);
     }
 
@@ -326,7 +389,6 @@
       padding: 20px 0;
     }
 
-    /* Responsive */
     @media (max-width: 820px){
       header{
         flex-direction: column;
@@ -365,7 +427,6 @@
       </div>
     </header>
 
-    <!-- ABOUT -->
     <section>
       <div class="section-title">
         <h2>About</h2>
@@ -381,7 +442,6 @@
       </div>
     </section>
 
-    <!-- FEATURED (CAROUSEL) -->
     <section>
       <div class="section-title">
         <h2>Featured Guides</h2>
@@ -436,7 +496,6 @@
       </div>
     </section>
 
-    <!-- CATEGORIES -->
     <section>
       <div class="section-title">
         <h2>All Writing</h2>
@@ -487,7 +546,6 @@
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section>
       <div class="section-title">
         <h2>Skills & Expertise</h2>
@@ -528,14 +586,9 @@
     const carousel = document.getElementById("featuredCarousel");
 
     function scrollCarousel(direction) {
-      const cardWidth = 340; // approx card size with gap
+      const cardWidth = 340;
       carousel.scrollBy({ left: direction * cardWidth, behavior: "smooth" });
     }
-
-    // Optional: Auto-snap to the first card on load
-    window.addEventListener("load", () => {
-      carousel.scrollTo({ left: 0, behavior: "smooth" });
-    });
   </script>
 
 </body>
