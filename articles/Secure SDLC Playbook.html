@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secure SDLC Playbook</title>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.75;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 22px;
+      color: #1f2937;
+      background-color: #ffffff;
+    }
+
+    h1, h2, h3 {
+      color: #111827;
+      line-height: 1.3;
+      margin-top: 2.4em;
+    }
+
+    h1 { font-size: 2.7rem; }
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+    h3 { font-size: 1.3rem; }
+
+    p { margin: 1.1em 0; }
+    ul { margin-left: 1.3em; }
+    li { margin: 0.55em 0; }
+
+    code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+
+    pre {
+      background: #020617;
+      color: #e5e7eb;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 1.8em 0;
+      font-size: 0.9rem;
+    }
+
+    .subtitle {
+      color: #4b5563;
+      font-size: 1.2rem;
+      margin-bottom: 2.8em;
+    }
+
+    .callout {
+      background: #f8fafc;
+      border-left: 5px solid #3b82f6;
+      padding: 20px;
+      margin: 1.8em 0;
+    }
+
+    .warning {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 20px;
+      margin: 1.8em 0;
+    }
+
+    .critical {
+      background: #fef2f2;
+      border-left: 5px solid #ef4444;
+      padding: 20px;
+      margin: 1.8em 0;
+      font-weight: 500;
+    }
+
+    .action {
+      background: #ecfeff;
+      border-left: 5px solid #06b6d4;
+      padding: 20px;
+      margin: 1.8em 0;
+    }
+
+    .footer {
+      margin-top: 5em;
+      font-size: 0.9rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 24px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Secure SDLC Playbook</h1>
+<p class="subtitle">
+Embedding security into every phase of the Software Development Lifecycle
+</p>
+
+<section>
+  <h2>1. Introduction</h2>
+  <p>
+    Traditional security models treat security as a final checkpoint before release.
+    Modern systems can no longer afford this approach.
+  </p>
+  <p>
+    Secure SDLC (Software Development Lifecycle) is a methodology that integrates
+    security practices into every stage of software development—from idea to production
+    and beyond.
+  </p>
+
+  <div class="callout">
+    Secure SDLC shifts security left, making it proactive rather than reactive.
+  </div>
+</section>
+
+<section>
+  <h2>2. Core Principles of Secure SDLC</h2>
+  <ul>
+    <li>Security is a shared responsibility</li>
+    <li>Prevent vulnerabilities early</li>
+    <li>Automate security wherever possible</li>
+    <li>Design for failure and recovery</li>
+  </ul>
+
+  <div class="critical">
+    Adding security late increases cost, risk, and incident probability.
+  </div>
+</section>
+
+<section>
+  <h2>3. Phase 1: Requirements and Planning</h2>
+  <p>
+    Security begins before code is written. During planning, teams define
+    security requirements alongside functional requirements.
+  </p>
+
+  <ul>
+    <li>Data classification (PII, financial, internal)</li>
+    <li>Compliance requirements (GDPR, SOC 2, HIPAA)</li>
+    <li>Risk assessment and threat identification</li>
+  </ul>
+
+  <div class="action">
+    Define security acceptance criteria for every feature.
+  </div>
+</section>
+
+<section>
+  <h2>4. Phase 2: Secure Design and Architecture</h2>
+  <p>
+    Architecture decisions have long-term security implications.
+    Secure design reduces the attack surface before implementation.
+  </p>
+
+  <ul>
+    <li>Threat modeling (STRIDE)</li>
+    <li>Least-privilege access design</li>
+    <li>Network segmentation</li>
+    <li>Secure API contracts</li>
+  </ul>
+
+  <pre><code>
+Example: Threat Modeling Output
+- Spoofing: Strong authentication required
+- Tampering: Input validation and hashing
+- Repudiation: Centralized logging
+  </code></pre>
+
+  <div class="warning">
+    Poor design cannot be fixed with patches alone.
+  </div>
+</section>
+
+<section>
+  <h2>5. Phase 3: Secure Development</h2>
+  <p>
+    Developers play a critical role in Secure SDLC.
+    Secure coding practices reduce common vulnerabilities.
+  </p>
+
+  <ul>
+    <li>Input validation and sanitization</li>
+    <li>Secure authentication and authorization</li>
+    <li>Avoid hardcoded secrets</li>
+    <li>Use secure libraries and frameworks</li>
+  </ul>
+
+  <pre><code>
+// Bad practice
+const apiKey = "hardcoded-secret";
+
+// Secure approach
+const apiKey = process.env.API_KEY;
+  </code></pre>
+
+  <div class="callout">
+    Most vulnerabilities originate from insecure coding patterns.
+  </div>
+</section>
+
+<section>
+  <h2>6. Phase 4: Security Testing</h2>
+  <p>
+    Testing validates that security controls work as intended.
+  </p>
+
+  <ul>
+    <li>Static Application Security Testing (SAST)</li>
+    <li>Dynamic Application Security Testing (DAST)</li>
+    <li>Dependency vulnerability scanning</li>
+    <li>Infrastructure-as-code scanning</li>
+  </ul>
+
+  <pre><code>
+npm audit
+trivy image my-service:latest
+  </code></pre>
+
+  <div class="warning">
+    Automated tools complement, but do not replace, human review.
+  </div>
+</section>
+
+<section>
+  <h2>7. Phase 5: Secure Deployment</h2>
+  <p>
+    Deployment pipelines must enforce security controls.
+  </p>
+
+  <ul>
+    <li>CI/CD security gates</li>
+    <li>Secrets management</li>
+    <li>Artifact integrity verification</li>
+  </ul>
+
+  <div class="action">
+    Block deployments when critical vulnerabilities are detected.
+  </div>
+</section>
+
+<section>
+  <h2>8. Phase 6: Production Monitoring and Incident Readiness</h2>
+  <p>
+    Security does not end at deployment.
+    Continuous monitoring is essential.
+  </p>
+
+  <ul>
+    <li>Centralized logging</li>
+    <li>Anomaly detection</li>
+    <li>Security incident response integration</li>
+  </ul>
+
+  <div class="callout">
+    Secure SDLC and incident response are tightly coupled.
+  </div>
+</section>
+
+<section>
+  <h2>9. Phase 7: Post-Release Review and Improvement</h2>
+  <p>
+    Secure SDLC is a continuous loop, not a linear process.
+  </p>
+
+  <ul>
+    <li>Security postmortems</li>
+    <li>Regular penetration testing</li>
+    <li>Developer security training</li>
+    <li>Policy and control updates</li>
+  </ul>
+
+  <div class="critical">
+    Security maturity grows through iteration, not perfection.
+  </div>
+</section>
+
+<section>
+  <h2>10. Metrics and Success Indicators</h2>
+  <ul>
+    <li>Vulnerabilities detected pre-production</li>
+    <li>Mean time to remediate (MTTR)</li>
+    <li>Security incidents per release</li>
+    <li>Developer adoption of security tools</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Conclusion</h2>
+  <p>
+    Secure SDLC is not a checklist—it is a mindset embedded into engineering culture.
+  </p>
+  <p>
+    Organizations that implement Secure SDLC build systems that are resilient,
+    compliant, and trusted by users.
+  </p>
+</section>
+
+<div class="footer">
+  <p>
+    Written for technical blog and portfolio use.  
+    Focus: Secure SDLC, DevSecOps, and software security engineering.
+  </p>
+</div>
+
+</body>
+</html>
