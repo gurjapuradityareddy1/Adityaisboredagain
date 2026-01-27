@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Posts – Aditya Reddy</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0f0f10;
+      --text: #eaeaea;
+      --muted: #b5b5b5;
+      --accent: #d23b32;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: "Source Serif 4", Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    /* Top bar */
+    .topbar{
+      border-bottom: 1px solid var(--border);
+      padding: 22px 0;
+    }
+
+    .topbar .inner{
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .site-title{
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .nav{
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    .nav a{
+      color: var(--text);
+      text-decoration: none;
+      margin-right: 14px;
+    }
+
+    .nav a:hover{
+      text-decoration: underline;
+    }
+
+    /* Content */
+    .container{
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 46px 20px 80px;
+    }
+
+    h1{
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: var(--accent);
+    }
+
+    .post{
+      margin-bottom: 42px;
+    }
+
+    .post a{
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .post a:hover{
+      text-decoration: underline;
+    }
+
+    .post p{
+      margin-top: 8px;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    footer{
+      margin-top: 80px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="topbar">
+    <div class="inner">
+      <div class="site-title">adityareddy</div>
+      <div class="nav">
+        <a href="../index.html">home</a>
+        <a href="#">posts</a>
+        <a href="#">projects</a>
+        <a href="https://github.com/gurjapuradityareddy1">github</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
+
+    <h1>Posts</h1>
+
+    <div class="post">
+      <a href="../articles/square-pixels.html">When square pixels aren’t square</a>
+      <p>
+        When you want to get the dimensions of a video file, you probably want
+        the display aspect ratio. Using the stored frame size can lead to
+        stretched or squashed video.
+      </p>
+    </div>
+
+    <div class="post">
+      <a href="../articles/oxford-congestion.html">Can you take an ox to Oxford?</a>
+      <p>
+        Let’s work out exactly when you need to pay Oxford’s new congestion
+        charge.
+      </p>
+    </div>
+
+    <div class="post">
+      <a href="../articles/json-dates.html">Cleaning up messy dates in JSON</a>
+      <p>
+        I wrote a Python script to help me get timestamps into a consistent
+        format in my JSON.
+      </p>
+    </div>
+
+    <div class="post">
+      <a href="../articles/av1-detection.html">Detecting AV1-encoded videos with Python</a>
+      <p>
+        A small Python test to find videos encoded with AV1, so they can be
+        converted into a codec my iPhone can play.
+      </p>
+    </div>
+
+    <div class="post">
+      <a href="../articles/iphone-video.html">Why can’t my iPhone play that video?</a>
+      <p>
+        The answer involves the AV1 video codec, Apple’s chips, and a few new
+        web APIs I learned along the way.
+      </p>
+    </div>
+
+    <div class="post">
+      <a href="../articles/syntax-highlighting.html">Doing my own syntax highlighting (finally)</a>
+      <p>
+        I redesigned my syntax highlighting scheme to use a smaller colour
+        palette. Here’s what changed and why it works better.
+      </p>
+    </div>
+
+    <footer>
+      © 2026 Aditya Reddy
+    </footer>
+
+  </div>
+
+</body>
+</html>
