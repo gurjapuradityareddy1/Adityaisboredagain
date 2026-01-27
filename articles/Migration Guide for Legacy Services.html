@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Migration Guide for Legacy Services</title>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.7;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #1f2937;
+      background-color: #ffffff;
+    }
+
+    h1, h2, h3 {
+      color: #111827;
+      line-height: 1.3;
+      margin-top: 2em;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 {
+      font-size: 1.6rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 6px;
+    }
+    h3 { font-size: 1.25rem; }
+
+    p { margin: 1em 0; }
+
+    ul { margin-left: 1.2em; }
+    li { margin: 0.5em 0; }
+
+    code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.5em 0;
+      font-size: 0.9rem;
+    }
+
+    .subtitle {
+      color: #4b5563;
+      font-size: 1.15rem;
+      margin-bottom: 2em;
+    }
+
+    .callout {
+      background: #f9fafb;
+      border-left: 4px solid #3b82f6;
+      padding: 16px;
+      margin: 1.5em 0;
+    }
+
+    .warning {
+      background: #fff7ed;
+      border-left: 4px solid #f97316;
+      padding: 16px;
+      margin: 1.5em 0;
+    }
+
+    .footer {
+      margin-top: 4em;
+      font-size: 0.9rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Migration Guide for Legacy Services</h1>
+<p class="subtitle">
+A comprehensive guide to safely migrating legacy systems to modern, scalable architectures
+</p>
+
+<section>
+  <h2>1. Introduction</h2>
+  <p>
+    Legacy systems power many critical business operations, but they often suffer from
+    scalability limitations, high maintenance costs, and slow development cycles.
+    Migrating these systems is not a rewrite—it is a controlled transformation.
+  </p>
+  <p>
+    This document provides a structured, end-to-end migration strategy designed to
+    minimize risk, preserve business continuity, and enable long-term system evolution.
+  </p>
+</section>
+
+<section>
+  <h2>2. What Is a Legacy System?</h2>
+  <p>A legacy system typically has one or more of the following characteristics:</p>
+  <ul>
+    <li>Monolithic architecture with tightly coupled components</li>
+    <li>Outdated frameworks or unsupported runtimes</li>
+    <li>Limited or missing documentation</li>
+    <li>Direct database access across multiple modules</li>
+    <li>High dependency on tribal knowledge</li>
+  </ul>
+
+  <div class="callout">
+    <strong>Important:</strong> Legacy does not mean bad. It usually means business-critical.
+  </div>
+</section>
+
+<section>
+  <h2>3. Migration Goals and Principles</h2>
+  <ul>
+    <li>Zero or minimal downtime</li>
+    <li>Backward compatibility during transition</li>
+    <li>Incremental migration over big-bang rewrites</li>
+    <li>Clear rollback mechanisms</li>
+  </ul>
+</section>
+
+<section>
+  <h2>4. Pre-Migration Assessment</h2>
+
+  <h3>4.1 System Inventory</h3>
+  <ul>
+    <li>Services and modules</li>
+    <li>Databases and schemas</li>
+    <li>External integrations</li>
+    <li>Authentication and authorization flows</li>
+  </ul>
+
+  <h3>4.2 Dependency Mapping</h3>
+  <p>Document dependencies explicitly before migration.</p>
+
+  <pre><code>
+Service A → Shared Database
+Service B → Service A API
+Service C → Cron Job → Database
+  </code></pre>
+
+  <div class="warning">
+    Hidden dependencies are the #1 cause of failed migrations.
+  </div>
+</section>
+
+<section>
+  <h2>5. Migration Strategy</h2>
+
+  <h3>5.1 Strangler Fig Pattern (Recommended)</h3>
+  <p>
+    Gradually replace parts of the legacy system with new services while routing traffic
+    incrementally.
+  </p>
+
+  <h3>5.2 Parallel Run</h3>
+  <p>
+    Run legacy and new systems side by side and compare outputs before switching traffic.
+  </p>
+</section>
+
+<section>
+  <h2>6. Data Migration Strategy</h2>
+
+  <h3>6.1 Schema Mapping</h3>
+  <p>Map old schemas to new models explicitly.</p>
+
+  <pre><code>
+-- Legacy table
+users(id, name, phone)
+
+-- New schema
+users(id, first_name, last_name, phone, created_at)
+  </code></pre>
+
+  <h3>6.2 Backfill and Sync</h3>
+  <ul>
+    <li>Initial bulk backfill</li>
+    <li>Incremental sync using change data capture (CDC)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>7. API Migration</h2>
+
+  <h3>7.1 Versioning</h3>
+  <pre><code>
+GET /api/v1/orders
+GET /api/v2/orders
+  </code></pre>
+
+  <h3>7.2 Backward Compatibility</h3>
+  <p>
+    Existing consumers should continue to function during migration.
+  </p>
+
+  <pre><code>
+// Legacy response
+{ "total": 100 }
+
+// New response
+{ "total": 100, "currency": "USD" }
+  </code></pre>
+</section>
+
+<section>
+  <h2>8. Authentication and Security</h2>
+  <ul>
+    <li>Migrate credentials securely</li>
+    <li>Rotate secrets during cutover</li>
+    <li>Audit permissions and access scopes</li>
+  </ul>
+</section>
+
+<section>
+  <h2>9. Testing Strategy</h2>
+  <ul>
+    <li>Unit tests for new services</li>
+    <li>Contract testing between old and new systems</li>
+    <li>Performance and load testing</li>
+  </ul>
+</section>
+
+<section>
+  <h2>10. Deployment and Rollback Plan</h2>
+
+  <h3>10.1 Canary Deployment</h3>
+  <p>
+    Gradually route a small percentage of traffic to the new system.
+  </p>
+
+  <h3>10.2 Rollback Criteria</h3>
+  <ul>
+    <li>Error rate threshold exceeded</li>
+    <li>Latency regression</li>
+    <li>Data inconsistency detected</li>
+  </ul>
+
+  <div class="warning">
+    A migration without a rollback plan is a production incident waiting to happen.
+  </div>
+</section>
+
+<section>
+  <h2>11. Post-Migration Validation</h2>
+  <ul>
+    <li>Verify functional parity</li>
+    <li>Monitor logs and metrics</li>
+    <li>Collect user and system feedback</li>
+  </ul>
+</section>
+
+<section>
+  <h2>12. Documentation Updates</h2>
+  <p>
+    Update all relevant documentation:
+  </p>
+  <ul>
+    <li>Architecture diagrams</li>
+    <li>API references</li>
+    <li>Operational runbooks</li>
+    <li>Onboarding guides</li>
+  </ul>
+</section>
+
+<section>
+  <h2>13. Conclusion</h2>
+  <p>
+    Migrating legacy services is not a single event—it is a disciplined engineering
+    process that balances innovation with stability.
+  </p>
+  <p>
+    With proper planning, incremental execution, and strong documentation, legacy systems
+    can evolve into modern platforms without disrupting the business they support.
+  </p>
+</section>
+
+<div class="footer">
+  <p>
+    Written for technical blog and portfolio use.  
+    Focus: legacy modernization, system migration, and production readiness.
+  </p>
+</div>
+
+</body>
+</html>
