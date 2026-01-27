@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aditya Reddy</title>
 
-  <!-- Serif font for reading -->
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -15,6 +14,7 @@
       --muted: #666;
       --bg: #fdfdfb;
       --link: #b03028;
+      --border: #e2e2e2;
     }
 
     *{
@@ -27,36 +27,35 @@
       font-family: "Source Serif 4", Georgia, serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     /* Top bar */
     .topbar{
       background: var(--red);
       color: #fff;
-      padding: 24px 0;
+      padding: 22px 0;
     }
 
     .topbar .inner{
       max-width: 980px;
       margin: 0 auto;
       padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
     }
 
     .site-title{
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
-    }
-
-    .nav{
-      margin-top: 8px;
-      font-size: 0.95rem;
     }
 
     .nav a{
       color: #fff;
       text-decoration: none;
-      margin-right: 14px;
+      margin-left: 16px;
+      font-size: 0.95rem;
     }
 
     .nav a:hover{
@@ -67,10 +66,9 @@
     .container{
       max-width: 980px;
       margin: 0 auto;
-      padding: 42px 20px;
+      padding: 48px 20px 80px;
     }
 
-    /* Intro section */
     .intro{
       display: grid;
       grid-template-columns: 1fr 260px;
@@ -85,16 +83,12 @@
     }
 
     p{
-      margin-bottom: 18px;
       font-size: 1.05rem;
+      margin-bottom: 18px;
     }
 
     a{
       color: var(--link);
-    }
-
-    a:hover{
-      text-decoration: underline;
     }
 
     .photo img{
@@ -102,35 +96,43 @@
       border-radius: 4px;
     }
 
-    /* Section title */
+    /* Work section */
     h2{
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: var(--red);
-      margin: 48px 0 20px;
+      margin: 64px 0 28px;
     }
 
-    /* Recent posts */
-    .posts{
-      list-style: none;
-    }
-
-    .posts li{
+    .work-grid{
       display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 14px;
-      margin-bottom: 14px;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .work-block h3{
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    .work-block ul{
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .work-block li{
+      margin-bottom: 10px;
       font-size: 1.02rem;
     }
 
-    .date{
+    .work-block li span{
       color: var(--muted);
       font-size: 0.95rem;
     }
 
     footer{
-      margin: 60px 0 20px;
-      color: var(--muted);
+      margin-top: 80px;
       font-size: 0.9rem;
+      color: var(--muted);
     }
 
     @media (max-width: 820px){
@@ -139,6 +141,9 @@
       }
       .photo{
         max-width: 220px;
+      }
+      .work-grid{
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -151,10 +156,8 @@
     <div class="inner">
       <div class="site-title">adityareddy</div>
       <div class="nav">
-        <a href="#">about</a>
-        <a href="posts.html">posts</a>
-        <a href="#">projects</a>
-        <a href="https://github.com/gurjapuradityareddy1">github</a>
+        <a href="about.html">about me</a>
+        <a href="#my-work">my work</a>
       </div>
     </div>
   </div>
@@ -167,59 +170,68 @@
         <h1>Hi, I’m Aditya.</h1>
 
         <p>
-          I’m a technical writer focused on developer documentation, APIs, and
-          guides that help engineers build with confidence.
+          I’m a technical writer specialising in developer documentation—API
+          references, implementation guides, and technical explanations that
+          are designed to be clear, accurate, and reusable.
         </p>
 
         <p>
-          I work on API references, tutorials, onboarding docs, and internal
-          documentation systems, with a strong emphasis on clarity, structure,
-          and long-term maintainability.
+          My work focuses on documenting real systems as engineers build them,
+          with an emphasis on structure, consistency, and long-term usability.
         </p>
 
         <p>
-          I write about documentation, APIs, developer tooling, and how to make
-          technical content genuinely useful. Longer ideas live on my blog —
-          things that don’t fit into a LinkedIn post.
-        </p>
-
-        <p>
-          If you’re new here, the <a href="#">projects page</a> is a good place
-          to start.
-        </p>
-
-        <p>
-          I hope you find something helpful.
+          Below is a snapshot of my recent work and writing categories.
         </p>
       </div>
 
       <div class="photo">
-        <!-- replace with your image -->
         <img src="1768192619040.jpg" alt="Aditya Reddy">
       </div>
     </div>
 
-    <!-- Recent posts -->
-    <h2>Recent posts</h2>
+    <!-- MY WORK -->
+    <h2 id="my-work">My recent work</h2>
 
-    <ul class="posts">
-      <li>
-        <div class="date">28 Aug</div>
-        <div><a href="#">Getting Started with REST APIs</a></div>
-      </li>
-      <li>
-        <div class="date">25 Aug</div>
-        <div><a href="articles/article1.html">Writing Clear API Documentation</a></div>
-      </li>
-      <li>
-        <div class="date">22 Aug</div>
-        <div><a href="#">Common API Errors and How to Document Them</a></div>
-      </li>
-      <li>
-        <div class="date">09 Jul</div>
-        <div><a href="#">Git Workflows for Documentation Teams</a></div>
-      </li>
-    </ul>
+    <div class="work-grid">
+
+      <!-- Column 1 -->
+      <div class="work-block">
+        <h3>1. Technical Articles</h3>
+        <ul>
+          <li>1.1 API authentication patterns <span>— deep-dive</span></li>
+          <li>1.2 Error handling in distributed systems</li>
+          <li>1.3 Versioning strategies for public APIs</li>
+          <li>1.4 Writing maintainable reference docs</li>
+        </ul>
+
+        <h3 style="margin-top:32px;">3. Technical Writer Portfolio</h3>
+        <ul>
+          <li>3.1 End-to-end API documentation project</li>
+          <li>3.2 Internal developer portal documentation</li>
+          <li>3.3 Migration guide for legacy services</li>
+        </ul>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="work-block">
+        <h3>2. Technical Blogs</h3>
+        <ul>
+          <li>2.1 How developers actually read docs</li>
+          <li>2.2 Structuring long-form technical content</li>
+          <li>2.3 Documentation debt in engineering teams</li>
+          <li>2.4 Balancing accuracy vs speed in docs</li>
+        </ul>
+
+        <h3 style="margin-top:32px;">4. Guides & References</h3>
+        <ul>
+          <li>4.1 REST API reference documentation</li>
+          <li>4.2 Implementation guide for webhooks</li>
+          <li>4.3 CI/CD pipeline documentation</li>
+        </ul>
+      </div>
+
+    </div>
 
     <footer>
       © 2026 Aditya Reddy
@@ -229,6 +241,3 @@
 
 </body>
 </html>
-
-
-this is the landing page code. now write somewhat similar to this. and generate similar 
