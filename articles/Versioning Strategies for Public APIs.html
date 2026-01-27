@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Versioning Strategies for Public APIs</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+    }
+    h2 { border-bottom: 1px solid #e5e7eb; }
+    pre {
+      background: #020617;
+      color: #e5e7eb;
+      padding: 16px;
+      border-radius: 8px;
+    }
+    .callout {
+      background: #ecfeff;
+      border-left: 4px solid #06b6d4;
+      padding: 14px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Versioning Strategies for Public APIs</h1>
+
+<p>
+Public APIs are contracts. Once released, breaking them breaks trust.
+Versioning is how APIs evolve without breaking consumers.
+</p>
+
+<h2>When Should You Version?</h2>
+<ul>
+  <li>Breaking response changes</li>
+  <li>Removed fields</li>
+  <li>Behavioral changes</li>
+</ul>
+
+<h2>URL Versioning</h2>
+
+<pre><code>
+GET /api/v1/orders
+GET /api/v2/orders
+</code></pre>
+
+<p>Simple and explicit, but increases surface area.</p>
+
+<h2>Header-Based Versioning</h2>
+
+<pre><code>
+Accept: application/vnd.company.v2+json
+</code></pre>
+
+<div class="callout">
+Preferred for mature platforms with many versions.
+</div>
+
+<h2>Backward-Compatible Changes</h2>
+<ul>
+  <li>Add new fields (never remove)</li>
+  <li>Make fields optional</li>
+</ul>
+
+<h2>Deprecation Strategy</h2>
+<pre><code>
+Deprecation: true
+Sunset: 2026-01-01
+</code></pre>
+
+<h2>Best Practices</h2>
+<ul>
+  <li>Version only when necessary</li>
+  <li>Document breaking changes clearly</li>
+  <li>Give migration timelines</li>
+</ul>
+
+</body>
+</html>
