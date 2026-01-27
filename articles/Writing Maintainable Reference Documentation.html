@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Writing Maintainable Reference Documentation</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.75;
+    }
+    h2 { border-bottom: 1px solid #e5e7eb; }
+    pre {
+      background: #020617;
+      color: #e5e7eb;
+      padding: 16px;
+      border-radius: 8px;
+    }
+    .callout {
+      background: #f8fafc;
+      border-left: 4px solid #22c55e;
+      padding: 14px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Writing Maintainable Reference Documentation</h1>
+
+<p>
+Reference documentation is not meant to be read end-to-end.
+It must be easy to scan, update, and trust.
+</p>
+
+<h2>What Makes Reference Docs Maintainable?</h2>
+<ul>
+  <li>Consistent structure</li>
+  <li>Predictable sections</li>
+  <li>Minimal prose</li>
+</ul>
+
+<h2>Recommended Structure</h2>
+
+<pre><code>
+Endpoint
+Description
+Parameters
+Request Example
+Response Example
+Errors
+</code></pre>
+
+<div class="callout">
+Consistency beats cleverness in reference documentation.
+</div>
+
+<h2>Use Real Examples</h2>
+
+<pre><code>
+POST /users
+{
+  "email": "user@example.com"
+}
+</code></pre>
+
+<h2>Document Errors Explicitly</h2>
+
+<pre><code>
+400 BAD_REQUEST
+{
+  "error": "Invalid email format"
+}
+</code></pre>
+
+<h2>Version-Control Documentation</h2>
+<p>
+Docs must live with code to stay accurate.
+</p>
+
+<h2>Final Principles</h2>
+<ul>
+  <li>Optimize for scanning</li>
+  <li>Update docs with every change</li>
+  <li>Never assume prior knowledge</li>
+</ul>
+
+</body>
+</html>
