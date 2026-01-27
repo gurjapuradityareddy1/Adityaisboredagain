@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Error Handling in Distributed Systems</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+      color: #1f2937;
+    }
+    h1, h2, h3 { color: #111827; }
+    h2 { border-bottom: 1px solid #e5e7eb; padding-bottom: 6px; }
+    pre {
+      background: #020617;
+      color: #e5e7eb;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .callout {
+      background: #f8fafc;
+      border-left: 4px solid #3b82f6;
+      padding: 14px;
+      margin: 20px 0;
+    }
+    .warning {
+      background: #fff7ed;
+      border-left: 4px solid #f97316;
+      padding: 14px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Error Handling in Distributed Systems</h1>
+
+<p>
+In distributed systems, failures are not exceptions — they are expected behavior.
+Unlike monolithic systems, a failure in one service can cascade across the system if not handled correctly.
+</p>
+
+<h2>Why Error Handling Is Hard in Distributed Systems</h2>
+<ul>
+  <li>Network calls are unreliable</li>
+  <li>Services fail independently</li>
+  <li>Latency varies across hops</li>
+  <li>Partial failures are common</li>
+</ul>
+
+<div class="callout">
+A system that does not plan for failure will fail unpredictably.
+</div>
+
+<h2>Types of Errors</h2>
+<ul>
+  <li>Transient errors (timeouts, temporary outages)</li>
+  <li>Permanent errors (invalid requests)</li>
+  <li>Downstream dependency failures</li>
+</ul>
+
+<h2>Retry With Backoff</h2>
+<p>Retries should be controlled and time-bound.</p>
+
+<pre><code>
+function retry(fn, retries = 3) {
+  let delay = 100;
+  for (let i = 0; i < retries; i++) {
+    try {
+      return fn();
+    } catch (e) {
+      sleep(delay);
+      delay *= 2;
+    }
+  }
+  throw new Error("Retries exhausted");
+}
+</code></pre>
+
+<div class="warning">
+Unbounded retries amplify outages and cause retry storms.
+</div>
+
+<h2>Circuit Breaker Pattern</h2>
+<p>
+Circuit breakers prevent repeated calls to failing services.
+</p>
+
+<pre><code>
+if (failureRate > threshold) {
+  circuit.open();
+}
+</code></pre>
+
+<h2>Graceful Degradation</h2>
+<p>
+When a dependency fails, return partial or cached data instead of failing completely.
+</p>
+
+<h2>Key Takeaways</h2>
+<ul>
+  <li>Failures must be isolated</li>
+  <li>Retries must be bounded</li>
+  <li>Systems must fail predictably</li>
+</ul>
+
+</body>
+</html>
