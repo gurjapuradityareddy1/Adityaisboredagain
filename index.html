@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Posts – Aditya Reddy</title>
+  <title>Aditya Reddy</title>
 
+  <!-- Serif font for reading -->
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg: #0f0f10;
-      --text: #eaeaea;
-      --muted: #b5b5b5;
-      --accent: #d23b32;
-      --border: rgba(255,255,255,0.08);
+      --red: #c43a2f;
+      --text: #1f1f1f;
+      --muted: #666;
+      --bg: #fdfdfb;
+      --link: #b03028;
     }
 
     *{
@@ -26,25 +27,25 @@
       font-family: "Source Serif 4", Georgia, serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.75;
+      line-height: 1.7;
     }
 
     /* Top bar */
     .topbar{
-      border-bottom: 1px solid var(--border);
-      padding: 22px 0;
+      background: var(--red);
+      color: #fff;
+      padding: 24px 0;
     }
 
     .topbar .inner{
-      max-width: 760px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
     .site-title{
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      color: var(--accent);
     }
 
     .nav{
@@ -53,7 +54,7 @@
     }
 
     .nav a{
-      color: var(--text);
+      color: #fff;
       text-decoration: none;
       margin-right: 14px;
     }
@@ -62,45 +63,83 @@
       text-decoration: underline;
     }
 
-    /* Content */
+    /* Main container */
     .container{
-      max-width: 760px;
+      max-width: 980px;
       margin: 0 auto;
-      padding: 46px 20px 80px;
+      padding: 42px 20px;
+    }
+
+    /* Intro section */
+    .intro{
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 40px;
+      align-items: start;
     }
 
     h1{
-      font-size: 2rem;
-      margin-bottom: 40px;
-      color: var(--accent);
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+      color: var(--red);
     }
 
-    .post{
-      margin-bottom: 42px;
+    p{
+      margin-bottom: 18px;
+      font-size: 1.05rem;
     }
 
-    .post a{
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
+    a{
+      color: var(--link);
     }
 
-    .post a:hover{
+    a:hover{
       text-decoration: underline;
     }
 
-    .post p{
-      margin-top: 8px;
-      font-size: 1.05rem;
+    .photo img{
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    /* Section title */
+    h2{
+      font-size: 1.4rem;
+      color: var(--red);
+      margin: 48px 0 20px;
+    }
+
+    /* Recent posts */
+    .posts{
+      list-style: none;
+    }
+
+    .posts li{
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+      font-size: 1.02rem;
+    }
+
+    .date{
       color: var(--muted);
-      max-width: 680px;
+      font-size: 0.95rem;
     }
 
     footer{
-      margin-top: 80px;
-      font-size: 0.9rem;
+      margin: 60px 0 20px;
       color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px){
+      .intro{
+        grid-template-columns: 1fr;
+      }
+      .photo{
+        max-width: 220px;
+      }
     }
   </style>
 </head>
@@ -112,7 +151,7 @@
     <div class="inner">
       <div class="site-title">adityareddy</div>
       <div class="nav">
-        <a href="../index.html">home</a>
+        <a href="#">about</a>
         <a href="#">posts</a>
         <a href="#">projects</a>
         <a href="https://github.com/gurjapuradityareddy1">github</a>
@@ -123,56 +162,64 @@
   <!-- Content -->
   <div class="container">
 
-    <h1>Posts</h1>
+    <div class="intro">
+      <div>
+        <h1>Hi, I’m Aditya.</h1>
 
-    <div class="post">
-      <a href="../articles/square-pixels.html">When square pixels aren’t square</a>
-      <p>
-        When you want to get the dimensions of a video file, you probably want
-        the display aspect ratio. Using the stored frame size can lead to
-        stretched or squashed video.
-      </p>
+        <p>
+          I’m a technical writer focused on developer documentation, APIs, and
+          guides that help engineers build with confidence.
+        </p>
+
+        <p>
+          I work on API references, tutorials, onboarding docs, and internal
+          documentation systems, with a strong emphasis on clarity, structure,
+          and long-term maintainability.
+        </p>
+
+        <p>
+          I write about documentation, APIs, developer tooling, and how to make
+          technical content genuinely useful. Longer ideas live on my blog —
+          things that don’t fit into a LinkedIn post.
+        </p>
+
+        <p>
+          If you’re new here, the <a href="#">projects page</a> is a good place
+          to start.
+        </p>
+
+        <p>
+          I hope you find something helpful.
+        </p>
+      </div>
+
+      <div class="photo">
+        <!-- replace with your image -->
+        <img src="1768192619040.jpg" alt="Aditya Reddy">
+      </div>
     </div>
 
-    <div class="post">
-      <a href="../articles/oxford-congestion.html">Can you take an ox to Oxford?</a>
-      <p>
-        Let’s work out exactly when you need to pay Oxford’s new congestion
-        charge.
-      </p>
-    </div>
+    <!-- Recent posts -->
+    <h2>Recent posts</h2>
 
-    <div class="post">
-      <a href="../articles/json-dates.html">Cleaning up messy dates in JSON</a>
-      <p>
-        I wrote a Python script to help me get timestamps into a consistent
-        format in my JSON.
-      </p>
-    </div>
-
-    <div class="post">
-      <a href="../articles/av1-detection.html">Detecting AV1-encoded videos with Python</a>
-      <p>
-        A small Python test to find videos encoded with AV1, so they can be
-        converted into a codec my iPhone can play.
-      </p>
-    </div>
-
-    <div class="post">
-      <a href="../articles/iphone-video.html">Why can’t my iPhone play that video?</a>
-      <p>
-        The answer involves the AV1 video codec, Apple’s chips, and a few new
-        web APIs I learned along the way.
-      </p>
-    </div>
-
-    <div class="post">
-      <a href="../articles/syntax-highlighting.html">Doing my own syntax highlighting (finally)</a>
-      <p>
-        I redesigned my syntax highlighting scheme to use a smaller colour
-        palette. Here’s what changed and why it works better.
-      </p>
-    </div>
+    <ul class="posts">
+      <li>
+        <div class="date">28 Aug</div>
+        <div><a href="#">Getting Started with REST APIs</a></div>
+      </li>
+      <li>
+        <div class="date">25 Aug</div>
+        <div><a href="articles/article1.html">Writing Clear API Documentation</a></div>
+      </li>
+      <li>
+        <div class="date">22 Aug</div>
+        <div><a href="#">Common API Errors and How to Document Them</a></div>
+      </li>
+      <li>
+        <div class="date">09 Jul</div>
+        <div><a href="#">Git Workflows for Documentation Teams</a></div>
+      </li>
+    </ul>
 
     <footer>
       © 2026 Aditya Reddy
@@ -182,3 +229,6 @@
 
 </body>
 </html>
+
+
+this is the landing page code. now write somewhat similar to this. and generate similar 
