@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Security Incident Response Guide</title>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.75;
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #1f2937;
+      background-color: #ffffff;
+    }
+
+    h1, h2, h3 {
+      color: #111827;
+      line-height: 1.3;
+      margin-top: 2.2em;
+    }
+
+    h1 { font-size: 2.6rem; }
+    h2 {
+      font-size: 1.7rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 6px;
+    }
+    h3 { font-size: 1.25rem; }
+
+    p { margin: 1em 0; }
+    ul { margin-left: 1.2em; }
+    li { margin: 0.5em 0; }
+
+    code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: #020617;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 1.6em 0;
+      font-size: 0.9rem;
+    }
+
+    .subtitle {
+      color: #4b5563;
+      font-size: 1.15rem;
+      margin-bottom: 2.5em;
+    }
+
+    .callout {
+      background: #f8fafc;
+      border-left: 5px solid #3b82f6;
+      padding: 18px;
+      margin: 1.6em 0;
+    }
+
+    .warning {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 18px;
+      margin: 1.6em 0;
+    }
+
+    .critical {
+      background: #fef2f2;
+      border-left: 5px solid #ef4444;
+      padding: 18px;
+      margin: 1.6em 0;
+      font-weight: 500;
+    }
+
+    .action {
+      background: #ecfeff;
+      border-left: 5px solid #06b6d4;
+      padding: 18px;
+      margin: 1.6em 0;
+    }
+
+    .footer {
+      margin-top: 4.5em;
+      font-size: 0.9rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 22px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Security Incident Response Guide</h1>
+<p class="subtitle">
+A comprehensive, step-by-step guide to detecting, containing, and recovering from security incidents
+</p>
+
+<section>
+  <h2>1. Introduction</h2>
+  <p>
+    Security incidents are not a matter of <em>if</em>, but <em>when</em>.
+    Modern software systems operate in hostile environments where attacks,
+    misconfigurations, and human errors are inevitable.
+  </p>
+  <p>
+    This guide documents a structured security incident response process used
+    by mature engineering and security teams to minimize damage, restore trust,
+    and prevent recurrence.
+  </p>
+
+  <div class="callout">
+    Security incident response is a process, not a panic reaction.
+  </div>
+</section>
+
+<section>
+  <h2>2. What Is a Security Incident?</h2>
+  <p>
+    A security incident is any event that compromises or threatens the
+    confidentiality, integrity, or availability of systems or data.
+  </p>
+
+  <ul>
+    <li>Unauthorized access to systems or data</li>
+    <li>Credential leaks or key exposure</li>
+    <li>Malware or ransomware activity</li>
+    <li>Data exfiltration or tampering</li>
+    <li>Denial-of-service attacks</li>
+  </ul>
+
+  <div class="critical">
+    Not all alerts are incidents, but every incident starts as an alert.
+  </div>
+</section>
+
+<section>
+  <h2>3. Incident Severity Classification</h2>
+  <ul>
+    <li><strong>SEV-1:</strong> Active breach, data loss, or system takeover</li>
+    <li><strong>SEV-2:</strong> Confirmed vulnerability exploitation</li>
+    <li><strong>SEV-3:</strong> Suspicious activity with limited impact</li>
+  </ul>
+
+  <div class="callout">
+    Severity determines response speed, communication scope, and escalation.
+  </div>
+</section>
+
+<section>
+  <h2>4. Detection and Alerting</h2>
+  <p>
+    Incidents are typically detected via monitoring, logging, and security tooling.
+  </p>
+
+  <pre><code>
+Example Alert Signals:
+- Multiple failed login attempts
+- Unusual outbound traffic spikes
+- Access from unexpected geolocations
+- Privilege escalation events
+  </code></pre>
+
+  <div class="warning">
+    Over-alerting causes alert fatigue and delays real incident response.
+  </div>
+</section>
+
+<section>
+  <h2>5. Initial Response and Triage</h2>
+
+  <div class="action">
+    Immediate actions for first responders:
+    <ul>
+      <li>Acknowledge the alert</li>
+      <li>Confirm incident authenticity</li>
+      <li>Assign incident commander</li>
+      <li>Preserve evidence</li>
+    </ul>
+  </div>
+
+  <p>
+    The goal of triage is to understand <strong>what is happening</strong>
+    without making the situation worse.
+  </p>
+</section>
+
+<section>
+  <h2>6. Containment Strategy</h2>
+  <p>
+    Containment limits attacker movement and prevents further damage.
+  </p>
+
+  <ul>
+    <li>Isolate affected systems</li>
+    <li>Revoke compromised credentials</li>
+    <li>Disable exposed endpoints</li>
+  </ul>
+
+  <pre><code>
+# Example: Disable compromised IAM user
+aws iam deactivate-mfa-device --user-name compromised-user
+  </code></pre>
+
+  <div class="critical">
+    Avoid destroying evidence during containment.
+  </div>
+</section>
+
+<section>
+  <h2>7. Eradication and Remediation</h2>
+  <p>
+    Once contained, teams remove the root cause of the incident.
+  </p>
+
+  <ul>
+    <li>Patch exploited vulnerabilities</li>
+    <li>Remove malicious artifacts</li>
+    <li>Rotate secrets and keys</li>
+  </ul>
+
+  <pre><code>
+# Rotate exposed API keys
+kubectl delete secret api-key
+kubectl apply -f new-secret.yaml
+  </code></pre>
+</section>
+
+<section>
+  <h2>8. Recovery and Validation</h2>
+  <p>
+    Recovery restores systems to a known safe state.
+  </p>
+
+  <ul>
+    <li>Restore clean backups</li>
+    <li>Re-enable services gradually</li>
+    <li>Monitor for reinfection</li>
+  </ul>
+
+  <div class="callout">
+    Recovery without validation invites repeat incidents.
+  </div>
+</section>
+
+<section>
+  <h2>9. Communication and Disclosure</h2>
+  <p>
+    Clear communication is critical during security incidents.
+  </p>
+
+  <ul>
+    <li>Internal stakeholder updates</li>
+    <li>Legal and compliance notification</li>
+    <li>Customer or regulatory disclosure (if required)</li>
+  </ul>
+
+  <div class="warning">
+    Premature or inaccurate communication can cause legal and reputational harm.
+  </div>
+</section>
+
+<section>
+  <h2>10. Post-Incident Review (Security Postmortem)</h2>
+  <p>
+    After resolution, teams conduct a detailed post-incident analysis.
+  </p>
+
+  <ul>
+    <li>Timeline of events</li>
+    <li>Root cause analysis</li>
+    <li>Detection gaps</li>
+    <li>Process improvements</li>
+  </ul>
+
+  <div class="callout">
+    Blameless postmortems improve security culture.
+  </div>
+</section>
+
+<section>
+  <h2>11. Preventive Improvements</h2>
+  <ul>
+    <li>Improve monitoring and alerts</li>
+    <li>Strengthen access controls</li>
+    <li>Enhance documentation and runbooks</li>
+    <li>Conduct regular security drills</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Conclusion</h2>
+  <p>
+    Security incident response is not just about stopping attacks—it is about
+    building resilient systems and confident teams.
+  </p>
+  <p>
+    A well-documented response process reduces chaos, limits damage, and turns
+    incidents into learning opportunities rather than disasters.
+  </p>
+</section>
+
+<div class="footer">
+  <p>
+    Written for technical blog and portfolio use.  
+    Focus: security operations, incident response, and production resilience.
+  </p>
+</div>
+
+</body>
+</html>
