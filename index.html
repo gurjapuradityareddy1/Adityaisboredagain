@@ -30,56 +30,21 @@
       line-height: 1.75;
     }
 
-/* Top bar with header image */
-.topbar{
-  background-image: url("Y2k cyber header twitter.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    /* Top bar */
+    .topbar{
+      background: var(--red);
+      color: #fff;
+      padding: 22px 0;
+    }
 
-  color: #fff;
-  padding: 28px 0;
-  position: relative;
-}
-
-/* subtle dark overlay for readability */
-.topbar::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-}
-
-/* ensure content stays above overlay */
-.topbar .inner{
-  position: relative;
-  z-index: 1;
-
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 20px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.site-title{
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-
-.nav a{
-  color: #fff;
-  text-decoration: none;
-  margin-left: 16px;
-  font-size: 0.95rem;
-}
-
-.nav a:hover{
-  text-decoration: underline;
-}
-
+    .topbar .inner{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
 
     .site-title{
       font-size: 1.5rem;
@@ -186,18 +151,17 @@
 
 <body>
 
- <!-- Header -->
-<header class="topbar">
-  <div class="inner">
-    <div class="site-title">Aditya Reddy</div>
-    <nav class="nav">
-      <a href="aboutme.html">about me</a>
-      <a href="#my-work">my work</a>
-       <a href="today-i-learned.html">Today I learned</a>
-    </nav>
+  <!-- Header -->
+  <div class="topbar">
+    <div class="inner">
+      <div class="site-title">Aditya Reddy</div>
+      <div class="nav">
+        <a href="aboutme.html">about me</a>
+        <a href="#my-work">my work</a>
+        <a href="Today I learned">Today I learned</a>
+      </div>
+    </div>
   </div>
-</header>
-
 
   <!-- Content -->
   <div class="container">
@@ -312,3 +276,4 @@
 
 </body>
 </html>
+
