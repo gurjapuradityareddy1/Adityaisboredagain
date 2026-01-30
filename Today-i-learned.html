@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Today I Learned — Aditya Reddy</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      font-family: "Source Serif 4", Georgia, serif;
+      background: #fdfdfb;
+      color: #1f1f1f;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .container{
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 20px 80px;
+    }
+
+    h1{
+      color: #c43a2f;
+      margin-bottom: 12px;
+    }
+
+    .intro{
+      color: #666;
+      margin-bottom: 48px;
+    }
+
+    /* Article list */
+    .article{
+      margin-bottom: 32px;
+    }
+
+    .article a{
+      font-size: 1.15rem;
+      color: #b03028;
+      text-decoration: none;
+    }
+
+    .article a:hover{
+      text-decoration: underline;
+    }
+
+    .meta{
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    /* Topics carousel */
+    h2{
+      margin-top: 64px;
+      margin-bottom: 16px;
+      color: #c43a2f;
+    }
+
+    .carousel{
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .topic{
+      white-space: nowrap;
+      border: 1px solid #e2e2e2;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      background: #fff;
+      color: #333;
+      flex-shrink: 0;
+    }
+
+    .topic:hover{
+      background: #f4f4f4;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Today I Learned</h1>
+
+    <p class="intro">
+      Short notes, technical observations, and things I learned while reading,
+      writing documentation, or working with real systems.
+    </p>
+
+    <!-- Articles -->
+    <div class="article">
+      <a href="articles/til-api-errors.html">
+        Why most API error responses fail developers
+      </a>
+      <div class="meta">Jan 2026 · APIs</div>
+    </div>
+
+    <div class="article">
+      <a href="articles/til-docs-reading-patterns.html">
+        How engineers actually read documentation
+      </a>
+      <div class="meta">Dec 2025 · Documentation</div>
+    </div>
+
+    <div class="article">
+      <a href="articles/til-versioning.html">
+        Semantic versioning breaks down faster than you think
+      </a>
+      <div class="meta">Nov 2025 · Engineering</div>
+    </div>
+
+    <!-- Topics -->
+    <h2>Topics</h2>
+
+    <div class="carousel">
+      <div class="topic">API design</div>
+      <div class="topic">Documentation</div>
+      <div class="topic">Distributed systems</div>
+      <div class="topic">Developer experience</div>
+      <div class="topic">Security</div>
+      <div class="topic">Tooling</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
