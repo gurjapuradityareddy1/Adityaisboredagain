@@ -55,6 +55,25 @@
     .back:hover{
       text-decoration: underline;
     }
+    .video-wrapper{
+  margin: 40px 0 48px;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #000;
+}
+
+.video-wrapper iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
   </style>
 </head>
 
@@ -64,7 +83,16 @@
 
     <h1>Today I Learned Dumbo Octopuses Exist</h1>
     <div class="meta">Feb 2026 · Biology · Deep Sea</div>
+<div class="video-wrapper">
+  <iframe 
+    src="https://www.youtube.com/embed/YcoMEaBjJLk"
+    title="Dumbo Octopus in the Deep Sea"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
 
+    
     <p>
       Today I learned that one of the cutest creatures on this planet does not live
       in coral reefs or shallow tropical waters.
