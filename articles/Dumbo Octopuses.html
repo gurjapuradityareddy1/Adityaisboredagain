@@ -1,279 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Today I Learned — Dumbo Octopuses</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Today I Learned — Dumbo Octopuses</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg: #fdfdfb;
-      --text: #1f1f1f;
-      --muted: #777;
-      --accent: #c43a2f;
-      --paper: rgba(0,0,0,0.04);
-    }
+<style>
+:root{
+  --bg:#fdfdfb;
+  --text:#1f1f1f;
+  --muted:#777;
+  --accent:#c43a2f;
+}
 
-    body.dark{
-      --bg: #06141b;
-      --text: #dbe9f4;
-      --muted: #8fa6b8;
-      --accent: #6ec6ff;
-      --paper: rgba(255,255,255,0.05);
-    }
+body.dark{
+  --bg:#06141b;
+  --text:#dbe9f4;
+  --muted:#8fa6b8;
+  --accent:#6ec6ff;
+}
 
-    body{
-      font-family: "Source Serif 4", Georgia, serif;
-      background:
-        radial-gradient(circle at 1px 1px, var(--paper) 1px, transparent 0),
-        var(--bg);
-      background-size: 24px 24px;
-      color: var(--text);
-      line-height: 1.75;
-      margin: 0;
-      transition: background 0.4s, color 0.4s;
-    }
+body{
+  font-family:"Source Serif 4", Georgia, serif;
+  background:var(--bg);
+  color:var(--text);
+  margin:0;
+  line-height:1.75;
+  transition:0.4s;
+}
 
-    /* Reading progress wave */
-    .wave{
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 6px;
-      width: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--accent),
-        transparent
-      );
-      transform-origin: left;
-      transform: scaleX(0);
-      z-index: 999;
-    }
+.container{
+  max-width:760px;
+  margin:auto;
+  padding:70px 20px 100px;
+  position:relative;
+}
 
-    /* Container */
-    .container{
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 70px 20px 90px;
-      position: relative;
-    }
+h1{color:var(--accent);}
+.meta{color:var(--muted);margin-bottom:40px;}
+p{margin-bottom:24px;}
+h2{margin-top:56px;color:var(--accent);position:relative;}
 
-    h1{
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
+.note{
+  font-family:"Gloria Hallelujah",cursive;
+  color:var(--muted);
+  font-size:.95rem;
+  position:absolute;
+  right:-220px;
+  width:200px;
+  transform:rotate(-4deg);
+}
 
-    .meta{
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 40px;
-    }
+@media(max-width:1000px){.note{display:none;}}
 
-    p{
-      margin-bottom: 24px;
-    }
+.video-wrapper{
+  margin:40px 0;
+  padding-bottom:56.25%;
+  height:0;
+  position:relative;
+}
+.video-wrapper iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border-radius:10px;
+}
 
-    h2{
-      margin-top: 52px;
-      margin-bottom: 16px;
-      color: var(--accent);
-      font-size: 1.4rem;
-      position: relative;
-    }
+.wave{
+  position:fixed;
+  top:0;left:0;
+  height:6px;width:100%;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  transform:scaleX(0);
+  transform-origin:left;
+  z-index:99;
+}
 
-    /* Handwritten margin notes */
-    .note{
-      position: absolute;
-      right: -220px;
-      width: 200px;
-      font-family: "Gloria Hallelujah", cursive;
-      font-size: 0.9rem;
-      color: var(--muted);
-      transform: rotate(-3deg);
-      opacity: 0.85;
-    }
+.toggle{
+  position:fixed;
+  bottom:20px;right:20px;
+  border-radius:20px;
+  padding:8px 14px;
+  border:1px solid var(--muted);
+  background:var(--bg);
+  cursor:pointer;
+}
 
-    @media(max-width: 1000px){
-      .note{ display:none; }
-    }
-
-    /* Doodles */
-    .doodle{
-      position: absolute;
-      opacity: 0.15;
-      pointer-events: none;
-    }
-
-    .doodle.octopus{
-      top: 140px;
-      left: -90px;
-      width: 120px;
-    }
-
-    .doodle.bubbles{
-      bottom: 220px;
-      right: -80px;
-      width: 100px;
-    }
-
-    /* Video */
-    .video-wrapper{
-      margin: 40px 0 48px;
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-      background: #000;
-    }
-
-    .video-wrapper iframe{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    /* Back */
-    .back{
-      display: inline-block;
-      margin-top: 64px;
-      font-size: 0.95rem;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .back:hover{
-      text-decoration: underline;
-    }
-
-    /* Dark mode toggle */
-    .toggle{
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      font-size: 0.9rem;
-      background: var(--bg);
-      color: var(--text);
-      border: 1px solid var(--paper);
-      padding: 8px 14px;
-      border-radius: 20px;
-      cursor: pointer;
-      z-index: 999;
-    }
-  </style>
+.doodle{
+  position:absolute;
+  opacity:.18;
+  pointer-events:none;
+}
+</style>
 </head>
 
 <body>
 
 <div class="wave" id="wave"></div>
-<button class="toggle" id="toggle">🌊 Deep Ocean Mode</button>
+<button class="toggle" onclick="document.body.classList.toggle('dark')">
+  🌊 Deep Ocean Mode
+</button>
 
 <div class="container">
 
-  <!-- Doodle SVGs -->
-  <svg class="doodle octopus" viewBox="0 0 120 120">
-    <circle cx="60" cy="50" r="28" stroke="currentColor" fill="none" stroke-width="2"/>
-    <path d="M40 75 C30 95, 20 105, 30 115" stroke="currentColor" fill="none"/>
-    <path d="M55 78 C50 98, 45 108, 50 118" stroke="currentColor" fill="none"/>
-    <path d="M70 78 C75 98, 80 108, 70 118" stroke="currentColor" fill="none"/>
-    <path d="M85 75 C95 95, 100 105, 90 115" stroke="currentColor" fill="none"/>
-  </svg>
+<!-- RANDOM DOODLES -->
+<svg class="doodle" style="top:120px;left:-60px" width="80" viewBox="0 0 100 100">
+  <path d="M10 50 Q50 10 90 50" stroke="currentColor" fill="none"/>
+</svg>
 
-  <svg class="doodle bubbles" viewBox="0 0 100 100">
-    <circle cx="20" cy="80" r="6" fill="none" stroke="currentColor"/>
-    <circle cx="50" cy="60" r="8" fill="none" stroke="currentColor"/>
-    <circle cx="75" cy="30" r="5" fill="none" stroke="currentColor"/>
-  </svg>
+<svg class="doodle" style="top:260px;right:-70px" width="90" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor"/>
+</svg>
 
-  <h1>Today I Learned Dumbo Octopuses Exist</h1>
-  <div class="meta">Feb 2026 · Biology · Deep Sea</div>
+<svg class="doodle" style="top:480px;left:-80px" width="100" viewBox="0 0 120 120">
+  <circle cx="60" cy="45" r="22" fill="none" stroke="currentColor"/>
+  <path d="M40 65 C30 90 20 100 30 110" stroke="currentColor" fill="none"/>
+</svg>
 
-  <p>
-    I’ve always wondered what lies beneath the deep, dark blue ocean — a place where
-    most of the world remains unexplored for no good reason.
-  </p>
+<svg class="doodle" style="top:700px;right:-60px" width="80" viewBox="0 0 100 100">
+  <path d="M20 80 C50 20 80 80" stroke="currentColor" fill="none"/>
+</svg>
 
-  <p>
-    When we imagine it, we picture distorted, life-threatening creatures.
-    And then there’s this little Dumbo octopus.
-  </p>
+<svg class="doodle" style="top:980px;left:-50px" width="70" viewBox="0 0 100 100">
+  <text x="10" y="50" font-size="18">🐙</text>
+</svg>
 
-  <h2>
-    The Dumbo octopus
-    <span class="note">why is it THIS cute??</span>
-  </h2>
+<svg class="doodle" style="top:1150px;right:-90px" width="110" viewBox="0 0 100 100">
+  <circle cx="30" cy="70" r="6" stroke="currentColor" fill="none"/>
+  <circle cx="60" cy="40" r="8" stroke="currentColor" fill="none"/>
+</svg>
 
-  <p>
-    The Dumbo octopus gets its name from the ear-like fins on its head. It doesn’t swim.
-    It floats. Calmly. Like it has nowhere else to be.
-  </p>
+<svg class="doodle" style="top:1400px;left:-70px" width="90" viewBox="0 0 100 100">
+  <path d="M10 20 L90 80" stroke="currentColor"/>
+</svg>
 
-  <p>
-    It just… exists.
-  </p>
+<svg class="doodle" style="top:1650px;right:-80px" width="100" viewBox="0 0 120 120">
+  <text x="10" y="60" font-size="16">deep sea doodle</text>
+</svg>
 
-  <div class="video-wrapper">
-    <iframe 
-      src="https://www.youtube.com/embed/YcoMEaBjJLk"
-      title="Dumbo Octopus"
-      allowfullscreen>
-    </iframe>
-  </div>
+<h1>Today I Learned Dumbo Octopuses Exist</h1>
+<div class="meta">Feb 2026 · Biology · Deep Sea</div>
 
-  <h2>
-    Living where nothing should live
-    <span class="note">7,000 meters down 😵</span>
-  </h2>
+<p>I’ve always wondered what lies beneath the deep, dark blue ocean.</p>
 
-  <p>
-    No sunlight. Near-freezing temperatures. Crushing pressure.
-    And yet it survives — softly built for a brutal world.
-  </p>
+<h2>
+  The Dumbo octopus
+  <span class="note">why is it THIS cute??</span>
+</h2>
 
-  <h2>
-    No ink. No panic.
-    <span class="note">drama-free legend</span>
-  </h2>
+<p>
+In a place full of nightmare creatures, nature casually dropped this soft,
+floaty, dumb-looking octopus and called it a day.
+</p>
 
-  <p>
-    In total darkness, ink is pointless. So it simply moves away.
-    Slowly. Efficiently.
-  </p>
+<p>
+I want to pet it. I want to protect it. I would absolutely volunteer
+to go down there just to vibe with it.
+</p>
 
-  <p>
-    Somewhere in the deepest part of the ocean, something gentle is just living.
-    And that feels oddly comforting.
-  </p>
+<div class="video-wrapper">
+  <iframe src="https://www.youtube.com/embed/YcoMEaBjJLk" allowfullscreen></iframe>
+</div>
 
-  <a class="back" href="../../index.html">← Back to Today I Learned</a>
+<h2>
+  Living where nothing should live
+  <span class="note">7,000m down… WHY</span>
+</h2>
+
+<p>
+No sunlight. Crushing pressure. Near freezing temperatures.
+And yet… chill.
+</p>
+
+<h2>
+  No ink. No drama.
+  <span class="note">emotionally mature octopus</span>
+</h2>
+
+<p>
+ Females can carry eggs at multiple stages of development at the same time.
+ There is no strict breeding season. No rush. Just quiet continuity. 
+ In one of the harshest environments on Earth, life has optimized for calm. 
+ The deepest octopus in the ocean also happens to be one of the cutest.
+ Which feels like nature quietly playing a joke on us.</p>
+
+<a href="../../index.html">← Back to Today I Learned</a>
 
 </div>
 
 <script>
-  /* Reading progress wave */
-  const wave = document.getElementById("wave");
-  window.addEventListener("scroll", () => {
-    const h = document.documentElement;
-    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
-    wave.style.transform = `scaleX(${scrolled})`;
-  });
-
-  /* Dark mode toggle */
-  const toggle = document.getElementById("toggle");
-  toggle.onclick = () => {
-    document.body.classList.toggle("dark");
-    toggle.textContent = document.body.classList.contains("dark")
-      ? "☀️ Surface Mode"
-      : "🌊 Deep Ocean Mode";
-  };
+window.addEventListener("scroll",()=>{
+  const h=document.documentElement;
+  document.getElementById("wave").style.transform=
+    `scaleX(${h.scrollTop/(h.scrollHeight-h.clientHeight)})`;
+});
 </script>
 
 </body>
