@@ -8,32 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* BACKGROUND COLLAGE */
-.bg-layer {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.bg-layer img {
-  position: absolute;
-  opacity: 0.08;
-  filter: grayscale(20%) contrast(90%) saturate(90%);
-  mix-blend-mode: multiply;
-  transition: opacity 0.3s ease;
-}
-
-/* CONTENT ABOVE BACKGROUND */
-.container {
-  position: relative;
-  z-index: 2;
-  background: rgba(253, 253, 251, 0.92);
-  backdrop-filter: blur(1px);
-  border-radius: 6px;
-}
-
     :root{
       --red:#c43a2f;
       --text:#1f1f1f;
@@ -52,11 +26,29 @@
       line-height:1.7;
     }
 
+    /* BACKGROUND COLLAGE */
+    .bg-layer{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      overflow:hidden;
+    }
+
+    .bg-layer img{
+      position:absolute;
+      opacity:0.1;
+      filter:grayscale(20%) contrast(90%) saturate(90%);
+      mix-blend-mode:multiply;
+    }
+
     /* NAVBAR */
     .topbar{
       background:var(--red);
       color:#fff;
       padding:22px 0;
+      position:relative;
+      z-index:2;
     }
 
     .topbar .inner{
@@ -82,11 +74,16 @@
 
     .nav a:hover{text-decoration:underline;}
 
-    /* PAGE */
+    /* CONTENT */
     .container{
       max-width:1200px;
       margin:0 auto;
       padding:64px 20px 80px;
+      position:relative;
+      z-index:2;
+      background:rgba(253,253,251,0.93);
+      backdrop-filter:blur(1px);
+      border-radius:6px;
     }
 
     h1{
@@ -100,10 +97,10 @@
       margin-bottom:56px;
     }
 
-    /* GRID SECTIONS */
+    /* GRID */
     .sections{
       display:grid;
-      grid-template-columns:repeat(4, 1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:48px;
     }
 
@@ -118,13 +115,11 @@
       font-weight:600;
     }
 
-    ul{
-      list-style:none;
-    }
+    ul{list-style:none;}
 
     li{
       margin-bottom:12px;
-      font-size:0.98rem;
+      font-size:.98rem;
     }
 
     li a{
@@ -132,50 +127,31 @@
       text-decoration:none;
     }
 
-    li a:hover{
-      text-decoration:underline;
-    }
+    li a:hover{text-decoration:underline;}
 
     footer{
       text-align:center;
       font-size:.9rem;
       color:var(--muted);
       margin:80px 0 20px;
+      position:relative;
+      z-index:2;
     }
 
     /* RESPONSIVE */
     @media(max-width:1100px){
-      .sections{
-        grid-template-columns:1fr 1fr;
-        gap:40px;
-      }
+      .sections{grid-template-columns:1fr 1fr;}
     }
 
     @media(max-width:600px){
-      .sections{
-        grid-template-columns:1fr;
-      }
+      .sections{grid-template-columns:1fr;}
     }
   </style>
-  
 </head>
-<script>
-  const images = document.querySelectorAll(".bg-layer img");
-
-  images.forEach(img => {
-    const size = Math.random() * 300 + 220; // 220–520px
-    const x = Math.random() * 100;
-    const y = Math.random() * 100;
-    const rotation = Math.random() * 30 - 15; // -15° to +15°
-
-    img.style.width = `${size}px`;
-    img.style.left = `${x}%`;
-    img.style.top = `${y}%`;
-    img.style.transform = `rotate(${rotation}deg)`;
-  });
-</script>
 
 <body>
+
+<!-- BACKGROUND IMAGES -->
 <div class="bg-layer">
   <img src="120f6b39-4380-432f-b588-5406eb0ef843.jpg">
   <img src="16289a79-5df7-45fc-b725-3b1d6b8c6932.jpg">
@@ -211,29 +187,26 @@
 
   <div class="sections">
 
-    <!-- COLUMN 1 -->
     <section>
       <h2>Deep Tech & Infrastructure</h2>
       <ul>
         <li><a href="https://www.construction-physics.com/p/how-to-build-an-ai-data-center" target="_blank">How to Build an AI Data Center</a></li>
-        <li><a href="https://gwern.net/" target="_blank">Gwern — Essays & Research</a></li>
+        <li><a href="https://gwern.net/" target="_blank">Gwern — Essays</a></li>
         <li><a href="https://worksinprogress.co/" target="_blank">Works in Progress</a></li>
-        <li><a href="https://www.paulgraham.com/hp.html" target="_blank">Paul Graham — Essays</a></li>
+        <li><a href="https://www.paulgraham.com/hp.html" target="_blank">Paul Graham</a></li>
         <li><a href="https://alexanderell.is/posts/mscs/" target="_blank">MScS Reflections</a></li>
       </ul>
     </section>
 
-    <!-- COLUMN 2 -->
     <section>
       <h2>Beautiful Explanations</h2>
       <ul>
         <li><a href="https://ciechanow.ski/moon/" target="_blank">The Moon — Ciechanowski</a></li>
-        <li><a href="https://bost.ocks.org/mike/" target="_blank">Mike Bostock (D3)</a></li>
+        <li><a href="https://bost.ocks.org/mike/" target="_blank">Mike Bostock</a></li>
         <li><a href="https://alexwlchan.net/2025/ox-in-oxford/" target="_blank">Ox in Oxford</a></li>
       </ul>
     </section>
 
-    <!-- COLUMN 3 -->
     <section>
       <h2>Independent Blogs</h2>
       <ul>
@@ -245,9 +218,8 @@
       </ul>
     </section>
 
-    <!-- COLUMN 4 -->
     <section>
-      <h2>Old-School & Playful Internet</h2>
+      <h2>Old-School Internet</h2>
       <ul>
         <li><a href="https://floor796.com/" target="_blank">Floor 796</a></li>
         <li><a href="https://pointerpointer.com/" target="_blank">Pointer Pointer</a></li>
@@ -256,12 +228,26 @@
     </section>
 
   </div>
-
 </div>
 
 <footer>
   © 2026 Aditya Reddy
 </footer>
+
+<!-- RANDOMIZE BACKGROUND IMAGES -->
+<script>
+  document.querySelectorAll(".bg-layer img").forEach(img => {
+    const size = Math.random() * 320 + 260;
+    const x = Math.random() * 90;
+    const y = Math.random() * 90;
+    const rotation = Math.random() * 30 - 15;
+
+    img.style.width = `${size}px`;
+    img.style.left = `${x}%`;
+    img.style.top = `${y}%`;
+    img.style.transform = `rotate(${rotation}deg)`;
+  });
+</script>
 
 </body>
 </html>
