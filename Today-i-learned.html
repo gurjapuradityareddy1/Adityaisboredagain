@@ -169,6 +169,29 @@
     }
   </style>
 </head>
+<script>
+  function boredRedirect() {
+    const boredomLinks = [
+      /* Websites */
+      "https://www.youtube.com/@Computerphile",
+      "https://waitbutwhy.com",
+      "https://ciechanow.ski",
+      "https://github.com/readme",
+      "https://aeon.co",
+      "https://www.openculture.com",
+
+      /* YouTube videos – replace / add your own */
+      "https://www.youtube.com/watch?v=tWYxrowovts",   // example
+      "https://www.youtube.com/watch?v=nnkyInAj6Z8", // example
+      "https://www.youtube.com/watch?v=VFntoBRGF1A"
+      "https://www.youtube.com/watch?v=q8QsQUliN5U"
+      "https://www.youtube.com/watch?v=BIfCpf1gk6I&list=RDBIfCpf1gk6I&start_radio=1"// example
+    ];
+
+    const randomIndex = Math.floor(Math.random() * boredomLinks.length);
+    window.open(boredomLinks[randomIndex], "_blank");
+  }
+</script>
 
 <body>
 
@@ -192,9 +215,9 @@
     <div class="label">Context</div>
     <p>Short notes from real systems, docs, and engineering work.</p>
 
-    <div class="label">Bored?</div>
-    <span class="bored-btn" onclick="toggleCarousel('leftCarousel')">
-      click here →
+     <div class="label">Bored?</div>
+<span class="bored-btn" onclick="boredRedirect()">
+  take me somewhere interesting →
     </span>
 
     <div class="carousel" id="leftCarousel">
