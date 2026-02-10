@@ -14,6 +14,7 @@
       --muted:#666;
       --bg:#fdfdfb;
       --border:#e2e2e2;
+      --link:#b03028;
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
@@ -25,7 +26,7 @@
       line-height:1.75;
     }
 
-    /* NAVBAR — SAME AS YOUR SITE */
+    /* NAVBAR (same as site) */
     .topbar{
       background:var(--red);
       color:#fff;
@@ -57,7 +58,7 @@
 
     /* PAGE */
     .container{
-      max-width:960px;
+      max-width:760px;
       margin:0 auto;
       padding:64px 20px 80px;
     }
@@ -70,81 +71,44 @@
 
     .intro{
       color:var(--muted);
+      margin-bottom:56px;
       max-width:640px;
-      margin-bottom:48px;
     }
 
-    /* CARD SECTIONS */
-    .card{
-      border:1px solid var(--border);
-      border-radius:8px;
-      padding:20px;
-      margin-bottom:32px;
-      background:#fff;
+    section{
+      margin-bottom:56px;
     }
 
-    .card-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:baseline;
-      margin-bottom:14px;
-    }
-
-    .card-header h2{
-      font-size:1.15rem;
+    h2{
+      font-size:1.4rem;
       color:var(--red);
+      margin-bottom:16px;
     }
 
-    .hint{
-      font-size:.85rem;
-      color:var(--muted);
+    ul{
+      list-style:none;
+      padding-left:0;
     }
 
-    .carousel{
-      display:flex;
-      gap:16px;
-      overflow-x:auto;
-      padding-bottom:8px;
-      scroll-behavior:smooth;
+    li{
+      margin-bottom:14px;
+      font-size:1.05rem;
     }
 
-    .carousel::-webkit-scrollbar{
-      height:6px;
-    }
-
-    .carousel::-webkit-scrollbar-thumb{
-      background:#ddd;
-      border-radius:10px;
-    }
-
-    .carousel a{
-      flex-shrink:0;
-      min-width:240px;
-      padding:14px;
-      border:1px solid var(--border);
-      border-radius:6px;
-      background:#fafafa;
+    li a{
+      color:var(--link);
       text-decoration:none;
-      color:var(--text);
-      font-size:.95rem;
     }
 
-    .carousel a:hover{
-      background:#f0f0f0;
+    li a:hover{
+      text-decoration:underline;
     }
 
-    /* FOOTER */
     footer{
       text-align:center;
       font-size:.9rem;
       color:var(--muted);
       margin:80px 0 20px;
-    }
-
-    @media(max-width:800px){
-      .carousel a{
-        min-width:200px;
-      }
     }
   </style>
 </head>
@@ -166,93 +130,75 @@
 <!-- CONTENT -->
 <div class="container">
 
-  <h1>If you’re bored, this is the good internet</h1>
+  <h1>If you’re bored, read something good</h1>
   <p class="intro">
-    Curated corners of the internet that reward curiosity.
-    No feeds. No algorithms. Just things worth reading.
+    A quiet corner of the internet that still rewards curiosity.
+    No feeds. No algorithms. Just things worth your time.
   </p>
 
-  <!-- CARD 1 -->
-  <div class="card">
-    <div class="card-header">
-      <h2>Deep Tech & Infrastructure</h2>
-      <span class="hint">scroll →</span>
-    </div>
-    <div class="carousel">
-      <a href="https://www.construction-physics.com/p/how-to-build-an-ai-data-center" target="_blank">
+  <!-- SECTION 1 -->
+  <section>
+    <h2>Deep Tech & Infrastructure</h2>
+    <ul>
+      <li><a href="https://www.construction-physics.com/p/how-to-build-an-ai-data-center" target="_blank">
         How to Build an AI Data Center
-      </a>
-      <a href="https://gwern.net/" target="_blank">Gwern — Essays</a>
-      <a href="https://worksinprogress.co/" target="_blank">Works in Progress</a>
-      <a href="https://www.paulgraham.com/hp.html" target="_blank">
-        Paul Graham Essays
-      </a>
-      <a href="https://alexanderell.is/posts/mscs/" target="_blank">
+      </a></li>
+      <li><a href="https://gwern.net/" target="_blank">Gwern — Essays & Research</a></li>
+      <li><a href="https://worksinprogress.co/" target="_blank">Works in Progress</a></li>
+      <li><a href="https://www.paulgraham.com/hp.html" target="_blank">Paul Graham — Essays</a></li>
+      <li><a href="https://alexanderell.is/posts/mscs/" target="_blank">
         MScS Reflections
-      </a>
-    </div>
-  </div>
+      </a></li>
+    </ul>
+  </section>
 
-  <!-- CARD 2 -->
-  <div class="card">
-    <div class="card-header">
-      <h2>Beautiful Explanations</h2>
-      <span class="hint">scroll →</span>
-    </div>
-    <div class="carousel">
-      <a href="https://ciechanow.ski/moon/" target="_blank">
-        The Moon — Ciechanowski
-      </a>
-      <a href="https://bost.ocks.org/mike/" target="_blank">
-        Mike Bostock (D3)
-      </a>
-      <a href="https://alexwlchan.net/2025/ox-in-oxford/" target="_blank">
+  <!-- SECTION 2 -->
+  <section>
+    <h2>Beautiful Explanations</h2>
+    <ul>
+      <li><a href="https://ciechanow.ski/moon/" target="_blank">
+        The Moon — Bartłomiej Ciechanowski
+      </a></li>
+      <li><a href="https://bost.ocks.org/mike/" target="_blank">
+        Mike Bostock (D3 & visual essays)
+      </a></li>
+      <li><a href="https://alexwlchan.net/2025/ox-in-oxford/" target="_blank">
         Ox in Oxford
-      </a>
-    </div>
-  </div>
+      </a></li>
+    </ul>
+  </section>
 
-  <!-- CARD 3 -->
-  <div class="card">
-    <div class="card-header">
-      <h2>Independent Blogs & Knowledge Gardens</h2>
-      <span class="hint">scroll →</span>
-    </div>
-    <div class="carousel">
-      <a href="https://manuelmoreale.com/about" target="_blank">
+  <!-- SECTION 3 -->
+  <section>
+    <h2>Independent Blogs & Knowledge Gardens</h2>
+    <ul>
+      <li><a href="https://manuelmoreale.com/about" target="_blank">
         Manuel Moreale
-      </a>
-      <a href="https://www.fromjason.xyz/" target="_blank">
-        From Jason
-      </a>
-      <a href="https://flowtwo.io/post/building-a-new-blog-pt.-2---streamlining-writing" target="_blank">
-        Building a New Blog
-      </a>
-      <a href="https://github.com/cassidoo/blahg" target="_blank">
+      </a></li>
+      <li><a href="https://www.fromjason.xyz/" target="_blank">From Jason</a></li>
+      <li><a href="https://flowtwo.io/post/building-a-new-blog-pt.-2---streamlining-writing" target="_blank">
+        Building a New Blog (Flow Two)
+      </a></li>
+      <li><a href="https://github.com/cassidoo/blahg" target="_blank">
         Cassidoo’s Blahg
-      </a>
-      <a href="https://mister-chad.com/random+stuff/blogroll+thingy" target="_blank">
+      </a></li>
+      <li><a href="https://mister-chad.com/random+stuff/blogroll+thingy" target="_blank">
         Blogroll Thingy
-      </a>
-    </div>
-  </div>
+      </a></li>
+    </ul>
+  </section>
 
-  <!-- CARD 4 -->
-  <div class="card">
-    <div class="card-header">
-      <h2>Playful Internet Curiosities</h2>
-      <span class="hint">scroll →</span>
-    </div>
-    <div class="carousel">
-      <a href="https://floor796.com/" target="_blank">Floor 796</a>
-      <a href="https://pointerpointer.com/" target="_blank">
-        Pointer Pointer
-      </a>
-      <a href="https://news.ycombinator.com/news?p=8" target="_blank">
+  <!-- SECTION 4 -->
+  <section>
+    <h2>Playful & Old-School Internet</h2>
+    <ul>
+      <li><a href="https://floor796.com/" target="_blank">Floor 796</a></li>
+      <li><a href="https://pointerpointer.com/" target="_blank">Pointer Pointer</a></li>
+      <li><a href="https://news.ycombinator.com/news?p=8" target="_blank">
         Hacker News (older pages)
-      </a>
-    </div>
-  </div>
+      </a></li>
+    </ul>
+  </section>
 
 </div>
 
