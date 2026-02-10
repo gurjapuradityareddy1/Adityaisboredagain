@@ -40,12 +40,13 @@ body{
   overflow:hidden;
 }
 
-.bg-layer img{
+ .bg-layer img{
   position:absolute;
-  opacity:0.1;
-  filter:grayscale(20%) contrast(90%) saturate(90%);
+  opacity:0.22; /* ← increased, but still safe */
+  filter:grayscale(15%) contrast(95%) saturate(85%);
   mix-blend-mode:multiply;
 }
+
 
 /* Soft paper wash to calm images */
 body::before{
