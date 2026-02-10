@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>If You’re Bored — Aditya Reddy</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --red:#c43a2f;
+      --text:#1f1f1f;
+      --muted:#666;
+      --bg:#fdfdfb;
+      --border:#e2e2e2;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      font-family:"Source Serif 4", Georgia, serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.75;
+    }
+
+    /* NAVBAR — SAME AS YOUR SITE */
+    .topbar{
+      background:var(--red);
+      color:#fff;
+      padding:22px 0;
+    }
+
+    .topbar .inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+    }
+
+    .site-title{
+      font-size:1.5rem;
+      font-weight:700;
+    }
+
+    .nav a{
+      color:#fff;
+      text-decoration:none;
+      margin-left:16px;
+      font-size:.95rem;
+    }
+
+    .nav a:hover{text-decoration:underline;}
+
+    /* PAGE */
+    .container{
+      max-width:960px;
+      margin:0 auto;
+      padding:64px 20px 80px;
+    }
+
+    h1{
+      color:var(--red);
+      font-size:2.2rem;
+      margin-bottom:12px;
+    }
+
+    .intro{
+      color:var(--muted);
+      max-width:640px;
+      margin-bottom:48px;
+    }
+
+    /* CARD SECTIONS */
+    .card{
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:20px;
+      margin-bottom:32px;
+      background:#fff;
+    }
+
+    .card-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      margin-bottom:14px;
+    }
+
+    .card-header h2{
+      font-size:1.15rem;
+      color:var(--red);
+    }
+
+    .hint{
+      font-size:.85rem;
+      color:var(--muted);
+    }
+
+    .carousel{
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      padding-bottom:8px;
+      scroll-behavior:smooth;
+    }
+
+    .carousel::-webkit-scrollbar{
+      height:6px;
+    }
+
+    .carousel::-webkit-scrollbar-thumb{
+      background:#ddd;
+      border-radius:10px;
+    }
+
+    .carousel a{
+      flex-shrink:0;
+      min-width:240px;
+      padding:14px;
+      border:1px solid var(--border);
+      border-radius:6px;
+      background:#fafafa;
+      text-decoration:none;
+      color:var(--text);
+      font-size:.95rem;
+    }
+
+    .carousel a:hover{
+      background:#f0f0f0;
+    }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      font-size:.9rem;
+      color:var(--muted);
+      margin:80px 0 20px;
+    }
+
+    @media(max-width:800px){
+      .carousel a{
+        min-width:200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="topbar">
+  <div class="inner">
+    <div class="site-title">Aditya Reddy</div>
+    <div class="nav">
+      <a href="index.html">home</a>
+      <a href="aboutme.html">about me</a>
+      <a href="Today-i-learned.html">Today I learned</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <h1>If you’re bored, this is the good internet</h1>
+  <p class="intro">
+    Curated corners of the internet that reward curiosity.
+    No feeds. No algorithms. Just things worth reading.
+  </p>
+
+  <!-- CARD 1 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Deep Tech & Infrastructure</h2>
+      <span class="hint">scroll →</span>
+    </div>
+    <div class="carousel">
+      <a href="https://www.construction-physics.com/p/how-to-build-an-ai-data-center" target="_blank">
+        How to Build an AI Data Center
+      </a>
+      <a href="https://gwern.net/" target="_blank">Gwern — Essays</a>
+      <a href="https://worksinprogress.co/" target="_blank">Works in Progress</a>
+      <a href="https://www.paulgraham.com/hp.html" target="_blank">
+        Paul Graham Essays
+      </a>
+      <a href="https://alexanderell.is/posts/mscs/" target="_blank">
+        MScS Reflections
+      </a>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Beautiful Explanations</h2>
+      <span class="hint">scroll →</span>
+    </div>
+    <div class="carousel">
+      <a href="https://ciechanow.ski/moon/" target="_blank">
+        The Moon — Ciechanowski
+      </a>
+      <a href="https://bost.ocks.org/mike/" target="_blank">
+        Mike Bostock (D3)
+      </a>
+      <a href="https://alexwlchan.net/2025/ox-in-oxford/" target="_blank">
+        Ox in Oxford
+      </a>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Independent Blogs & Knowledge Gardens</h2>
+      <span class="hint">scroll →</span>
+    </div>
+    <div class="carousel">
+      <a href="https://manuelmoreale.com/about" target="_blank">
+        Manuel Moreale
+      </a>
+      <a href="https://www.fromjason.xyz/" target="_blank">
+        From Jason
+      </a>
+      <a href="https://flowtwo.io/post/building-a-new-blog-pt.-2---streamlining-writing" target="_blank">
+        Building a New Blog
+      </a>
+      <a href="https://github.com/cassidoo/blahg" target="_blank">
+        Cassidoo’s Blahg
+      </a>
+      <a href="https://mister-chad.com/random+stuff/blogroll+thingy" target="_blank">
+        Blogroll Thingy
+      </a>
+    </div>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Playful Internet Curiosities</h2>
+      <span class="hint">scroll →</span>
+    </div>
+    <div class="carousel">
+      <a href="https://floor796.com/" target="_blank">Floor 796</a>
+      <a href="https://pointerpointer.com/" target="_blank">
+        Pointer Pointer
+      </a>
+      <a href="https://news.ycombinator.com/news?p=8" target="_blank">
+        Hacker News (older pages)
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Aditya Reddy
+</footer>
+
+</body>
+</html>
