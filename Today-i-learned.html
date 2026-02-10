@@ -25,7 +25,7 @@
       line-height:1.75;
     }
 
-    /* TOP BAR — SAME AS HOMEPAGE */
+    /* TOP BAR */
     .topbar{
       background:var(--red);
       color:#fff;
@@ -151,7 +151,6 @@
       color:var(--muted);
     }
 
-    /* FOOTER — SAME STYLE */
     footer{
       text-align:center;
       font-size:.9rem;
@@ -159,7 +158,6 @@
       margin:80px 0 20px;
     }
 
-    /* RESPONSIVE */
     @media(max-width:1100px){
       .page{
         grid-template-columns:1fr;
@@ -169,29 +167,6 @@
     }
   </style>
 </head>
-<script>
-  function boredRedirect() {
-    const boredomLinks = [
-      /* Websites */
-      "https://www.youtube.com/@Computerphile",
-      "https://waitbutwhy.com",
-      "https://ciechanow.ski",
-      "https://github.com/readme",
-      "https://aeon.co",
-      "https://www.openculture.com",
-
-      /* YouTube videos – replace / add your own */
-      "https://www.youtube.com/watch?v=tWYxrowovts",   // example
-      "https://www.youtube.com/watch?v=nnkyInAj6Z8", // example
-      "https://www.youtube.com/watch?v=VFntoBRGF1A"
-      "https://www.youtube.com/watch?v=q8QsQUliN5U"
-      "https://www.youtube.com/watch?v=BIfCpf1gk6I&list=RDBIfCpf1gk6I&start_radio=1"// example
-    ];
-
-    const randomIndex = Math.floor(Math.random() * boredomLinks.length);
-    window.open(boredomLinks[randomIndex], "_blank");
-  }
-</script>
 
 <body>
 
@@ -215,16 +190,10 @@
     <div class="label">Context</div>
     <p>Short notes from real systems, docs, and engineering work.</p>
 
-     <div class="label">Bored?</div>
-<span class="bored-btn" onclick="boredRedirect()">
-  take me somewhere interesting →
+    <div class="label">Bored?</div>
+    <span class="bored-btn" onclick="boredRedirect()">
+      take me somewhere interesting →
     </span>
-
-    <div class="carousel" id="leftCarousel">
-      <img src="https://picsum.photos/260/160?random=1">
-      <img src="https://picsum.photos/260/160?random=2">
-      <img src="https://picsum.photos/260/160?random=3">
-    </div>
   </aside>
 
   <!-- MAIN -->
@@ -236,9 +205,7 @@
     </p>
 
     <article>
-      <a href="articles/Dumbo Octopuses.html">
-        Dumbo Octopuses
-      </a>
+      <a href="articles/Dumbo Octopuses.html">Dumbo Octopuses</a>
       <div class="meta">Jan 2026 · APIs</div>
     </article>
 
@@ -249,7 +216,6 @@
       <div class="meta">Dec 2025 · Documentation</div>
     </article>
 
-    <!-- VISUAL BREAK -->
     <div class="image-strip">
       <img src="https://picsum.photos/300/180?random=4">
       <img src="https://picsum.photos/300/180?random=5">
@@ -263,17 +229,11 @@
       <div class="meta">Nov 2025 · Engineering</div>
     </article>
 
-    <!-- BOTTOM CURIOSITY -->
     <div style="margin-top:64px;border-top:1px solid var(--border);padding-top:32px;">
       <div class="label">Still scrolling?</div>
-      <span class="bored-btn" onclick="toggleCarousel('bottomCarousel')">
-        explore something random →
+      <span class="bored-btn" onclick="boredRedirect()">
+        surprise me →
       </span>
-
-      <div class="carousel" id="bottomCarousel">
-        <img src="https://picsum.photos/360/200?random=7">
-        <img src="https://picsum.photos/360/200?random=8">
-      </div>
     </div>
   </main>
 
@@ -293,9 +253,23 @@
 </footer>
 
 <script>
-  function toggleCarousel(id){
-    const el=document.getElementById(id);
-    el.style.display=el.style.display==="block"?"none":"block";
+  function boredRedirect() {
+    const boredomLinks = [
+      "https://www.youtube.com/@Computerphile",
+      "https://waitbutwhy.com",
+      "https://ciechanow.ski",
+      "https://github.com/readme",
+      "https://aeon.co",
+      "https://www.openculture.com",
+      "https://www.youtube.com/watch?v=tWYxrowovts",
+      "https://www.youtube.com/watch?v=nnkyInAj6Z8",
+      "https://www.youtube.com/watch?v=VFntoBRGF1A",
+      "https://www.youtube.com/watch?v=q8QsQUliN5U",
+      "https://www.youtube.com/watch?v=BIfCpf1gk6I"
+    ];
+
+    const randomIndex = Math.floor(Math.random() * boredomLinks.length);
+    window.open(boredomLinks[randomIndex], "_blank");
   }
 </script>
 
