@@ -8,128 +8,273 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root{
+      --red:#c43a2f;
+      --text:#1f1f1f;
+      --muted:#666;
+      --bg:#fdfdfb;
+      --border:#e2e2e2;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
     body{
-      font-family: "Source Serif 4", Georgia, serif;
-      background: #fdfdfb;
-      color: #1f1f1f;
-      line-height: 1.75;
-      margin: 0;
+      font-family:"Source Serif 4", Georgia, serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.75;
     }
 
-    .container{
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 60px 20px 80px;
+    /* TOP BAR — SAME AS HOMEPAGE */
+    .topbar{
+      background:var(--red);
+      color:#fff;
+      padding:22px 0;
     }
 
-    h1{
-      color: #c43a2f;
-      margin-bottom: 12px;
+    .topbar .inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
     }
 
-    .intro{
-      color: #666;
-      margin-bottom: 48px;
+    .site-title{
+      font-size:1.5rem;
+      font-weight:700;
     }
 
-    /* Article list */
-    .article{
-      margin-bottom: 32px;
+    .nav a{
+      color:#fff;
+      text-decoration:none;
+      margin-left:16px;
+      font-size:.95rem;
     }
 
-    .article a{
-      font-size: 1.15rem;
-      color: #b03028;
-      text-decoration: none;
+    .nav a:hover{text-decoration:underline;}
+
+    /* PAGE GRID */
+    .page{
+      display:grid;
+      grid-template-columns:1fr minmax(620px,720px) 1fr;
+      gap:48px;
+      padding:64px 40px 80px;
+      max-width:1200px;
+      margin:0 auto;
     }
 
-    .article a:hover{
-      text-decoration: underline;
+    /* LEFT RAIL */
+    .left{
+      font-size:14px;
+      color:var(--muted);
+      padding-top:32px;
     }
 
-    .meta{
-      font-size: 0.9rem;
-      color: #777;
-      margin-top: 4px;
+    .label{
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin:20px 0 8px;
+      color:#999;
     }
 
-    /* Topics carousel */
-    h2{
-      margin-top: 64px;
-      margin-bottom: 16px;
-      color: #c43a2f;
+    .bored-btn{
+      cursor:pointer;
+      color:var(--red);
+      font-size:13px;
     }
 
     .carousel{
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      padding-bottom: 8px;
+      display:none;
+      margin-top:12px;
     }
 
-    .topic{
-      white-space: nowrap;
-      border: 1px solid #e2e2e2;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      background: #fff;
-      color: #333;
-      flex-shrink: 0;
+    .carousel img{
+      width:100%;
+      border-radius:6px;
+      filter:grayscale(100%);
+      margin-bottom:10px;
     }
 
-    .topic:hover{
-      background: #f4f4f4;
-      cursor: pointer;
+    /* MAIN */
+    h1{
+      color:var(--red);
+      font-size:2.4rem;
+      margin-bottom:12px;
+    }
+
+    .intro{
+      color:var(--muted);
+      margin-bottom:48px;
+      max-width:560px;
+    }
+
+    article{
+      margin-bottom:48px;
+    }
+
+    article a{
+      font-size:1.15rem;
+      color:#b03028;
+      text-decoration:none;
+    }
+
+    article a:hover{text-decoration:underline;}
+
+    .meta{
+      font-size:.9rem;
+      color:#777;
+      margin-top:6px;
+    }
+
+    /* IMAGE STRIP */
+    .image-strip{
+      display:flex;
+      gap:16px;
+      margin:48px 0;
+    }
+
+    .image-strip img{
+      width:100%;
+      border-radius:6px;
+      filter:grayscale(100%);
+    }
+
+    /* RIGHT RAIL */
+    .right{
+      border-left:1px solid var(--border);
+      padding-left:24px;
+      padding-top:32px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    /* FOOTER — SAME STYLE */
+    footer{
+      text-align:center;
+      font-size:.9rem;
+      color:var(--muted);
+      margin:80px 0 20px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:1100px){
+      .page{
+        grid-template-columns:1fr;
+        padding:48px 20px;
+      }
+      .left,.right{display:none;}
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>Today I Learned</h1>
+<!-- NAVBAR -->
+<div class="topbar">
+  <div class="inner">
+    <div class="site-title">Aditya Reddy</div>
+    <div class="nav">
+      <a href="index.html">home</a>
+      <a href="aboutme.html">about me</a>
+      <a href="Today-i-learned.html">Today I learned</a>
+    </div>
+  </div>
+</div>
 
+<!-- CONTENT -->
+<div class="page">
+
+  <!-- LEFT RAIL -->
+  <aside class="left">
+    <div class="label">Context</div>
+    <p>Short notes from real systems, docs, and engineering work.</p>
+
+    <div class="label">Bored?</div>
+    <span class="bored-btn" onclick="toggleCarousel('leftCarousel')">
+      click here →
+    </span>
+
+    <div class="carousel" id="leftCarousel">
+      <img src="https://picsum.photos/260/160?random=1">
+      <img src="https://picsum.photos/260/160?random=2">
+      <img src="https://picsum.photos/260/160?random=3">
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <h1>Today I Learned</h1>
     <p class="intro">
-      Short notes, technical observations, and things I learned while reading,
+      Short technical observations and things I learned while reading,
       writing documentation, or working with real systems.
     </p>
 
-    <!-- Articles -->
-    <div class="article">
+    <article>
       <a href="articles/Dumbo Octopuses.html">
-         Dumbo Octopuses 
+        Dumbo Octopuses
       </a>
       <div class="meta">Jan 2026 · APIs</div>
-    </div>
+    </article>
 
-    <div class="article">
+    <article>
       <a href="articles/til-docs-reading-patterns.html">
         How engineers actually read documentation
       </a>
       <div class="meta">Dec 2025 · Documentation</div>
+    </article>
+
+    <!-- VISUAL BREAK -->
+    <div class="image-strip">
+      <img src="https://picsum.photos/300/180?random=4">
+      <img src="https://picsum.photos/300/180?random=5">
+      <img src="https://picsum.photos/300/180?random=6">
     </div>
 
-    <div class="article">
+    <article>
       <a href="articles/til-versioning.html">
         Semantic versioning breaks down faster than you think
       </a>
       <div class="meta">Nov 2025 · Engineering</div>
+    </article>
+
+    <!-- BOTTOM CURIOSITY -->
+    <div style="margin-top:64px;border-top:1px solid var(--border);padding-top:32px;">
+      <div class="label">Still scrolling?</div>
+      <span class="bored-btn" onclick="toggleCarousel('bottomCarousel')">
+        explore something random →
+      </span>
+
+      <div class="carousel" id="bottomCarousel">
+        <img src="https://picsum.photos/360/200?random=7">
+        <img src="https://picsum.photos/360/200?random=8">
+      </div>
     </div>
+  </main>
 
-    <!-- Topics -->
-    <h2>Topics</h2>
+  <!-- RIGHT RAIL -->
+  <aside class="right">
+    <div class="label">Topics</div>
+    <p>API design</p>
+    <p>Documentation</p>
+    <p>Distributed systems</p>
+    <p>Developer experience</p>
+  </aside>
 
-    <div class="carousel">
-      <div class="topic">API design</div>
-      <div class="topic">Documentation</div>
-      <div class="topic">Distributed systems</div>
-      <div class="topic">Developer experience</div>
-      <div class="topic">Security</div>
-      <div class="topic">Tooling</div>
-    </div>
+</div>
 
-  </div>
+<footer>
+  © 2026 Aditya Reddy
+</footer>
+
+<script>
+  function toggleCarousel(id){
+    const el=document.getElementById(id);
+    el.style.display=el.style.display==="block"?"none":"block";
+  }
+</script>
 
 </body>
 </html>
