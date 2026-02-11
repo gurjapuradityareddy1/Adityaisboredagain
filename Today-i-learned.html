@@ -130,19 +130,13 @@
     }
 
     /* IMAGE STRIP */
-   .image-strip{
-  display:flex;
-  gap:16px;
-  margin:48px 0;
-  align-items:center;
+ .image-strip img{
+  filter: grayscale(100%);
+  transition: 0.2s ease;
 }
 
-.image-strip img{
-  width: 32%;              /* 3 images evenly spaced */
-  max-height: 200px;       /* prevents giant images */
-  object-fit: cover;       /* keeps proportions nice */
-  border-radius:6px;
-  filter:grayscale(100%);
+.image-strip img:hover{
+  filter: grayscale(0%);
 }
 
 
@@ -223,8 +217,8 @@
     </article>
 
     <div class="image-strip">
-      <img src="articles/e812c5346c69f143d25ef93ee4411d6b.jpg4">
-      <img src="articles/download (1).png">
+      <img src="articles/e812c5346c69f143d25ef93ee4411d6b.jpg">
+      <img src="articles/abcba71e1e62c9efb1e98b462058ce4c.jpg">
       <img src="articles/4525a81689c922d1fb8c75e1a70cd14c.jpg">
     </div>
 
