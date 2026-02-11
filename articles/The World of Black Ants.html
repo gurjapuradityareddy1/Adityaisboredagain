@@ -57,43 +57,36 @@ body{
 
 .nav a:hover{text-decoration:underline;}
 
-/* VIDEO WRAPPER */
 .video-wrapper{
-  position:relative;
-  overflow:hidden;
-  min-height:100vh;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
-/* Background video */
-.bg-video{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:-2;
-  opacity:0.22; /* noticeable but elegant */
+/* Background GIF */
+.bg-gif{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.35; /* noticeable but elegant */
 }
 
-/* Soft white overlay for readability */
-.video-overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(255,255,255,0.82);
-  z-index:-1;
+/* White overlay for readability */
+.gif-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.80);
+  z-index: -1;
 }
 
-/* PAGE GRID */
+/* Ensure content is above */
 .page{
-  position:relative;
-  z-index:2;
-  display:grid;
-  grid-template-columns:1fr minmax(620px,720px) 1fr;
-  gap:48px;
-  padding:64px 40px 80px;
-  max-width:1200px;
-  margin:0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 /* LEFT RAIL */
@@ -205,14 +198,11 @@ footer{
 <!-- VIDEO SECTION -->
 <div class="video-wrapper">
 
-<video autoplay muted loop playsinline class="bg-video">
-  <source src="articles/ants_on_white_background_1080P.mp4" type="video/mp4">
-</video>
+  <img src="articles/ants_on_white_background_1080P-ezgif.com-optimize.gif" 
+       class="bg-gif" alt="Ants background animation">
 
+  <div class="gif-overlay"></div>
 
-  <div class="video-overlay"></div>
-
-  <!-- CONTENT -->
   <div class="page">
 
     <aside class="left">
