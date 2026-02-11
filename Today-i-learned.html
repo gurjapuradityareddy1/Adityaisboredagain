@@ -130,17 +130,21 @@
     }
 
     /* IMAGE STRIP */
-    .image-strip{
-      display:flex;
-      gap:16px;
-      margin:48px 0;
-    }
+   .image-strip{
+  display:flex;
+  gap:16px;
+  margin:48px 0;
+  align-items:center;
+}
 
-    .image-strip img{
-      width:100%;
-      border-radius:6px;
-      filter:grayscale(100%);
-    }
+.image-strip img{
+  width: 32%;              /* 3 images evenly spaced */
+  max-height: 200px;       /* prevents giant images */
+  object-fit: cover;       /* keeps proportions nice */
+  border-radius:6px;
+  filter:grayscale(100%);
+}
+
 
     /* RIGHT RAIL */
     .right{
